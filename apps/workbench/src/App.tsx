@@ -6,6 +6,7 @@ import type {
   PlannerPolicy,
 } from "@morph/core";
 import { useMemo, useRef, useState } from "react";
+import { DossierAfterWorkbench, DossierBeforeWorkbench } from "./DossierSections.js";
 import { exampleById, WORKBENCH_EXAMPLES } from "./examples.js";
 import type {
   ArtifactImportWorkerRequest,
@@ -260,16 +261,19 @@ function AppHeader(): React.JSX.Element {
   return (
     <header className="app-header">
       <a className="brand" href="#main-content" aria-label="MORPH workbench home">
-        <span className="brand-mark" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </span>
+        <img className="brand-mark" src="/morph-mark.jpg" alt="" aria-hidden="true" />
         <span>
           <strong>MORPH</strong>
-          <small>representation workbench</small>
+          <small>context compiler</small>
         </span>
       </a>
+      <nav className="site-nav" aria-label="Primary navigation">
+        <a href="#use-case">Use case</a>
+        <a href="#formats">Formats</a>
+        <a href="#compiler">Workbench</a>
+        <a href="#proof">Evidence</a>
+        <a href="#docs">Docs</a>
+      </nav>
       <aside className="header-meta" aria-label="Runtime status">
         <StatusChip value="offline" tone="verified" />
         <span>local-o200k-base</span>
@@ -581,25 +585,40 @@ export function App(): React.JSX.Element {
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <AppHeader />
       <main id="main-content">
         <section className="hero" aria-labelledby="page-title">
-          <div>
-            <p className="eyebrow">Representation compiler · local and offline</p>
-            <h1 id="page-title">
-              Preserve the data.
-              <br />
-              <span>Measure the prompt.</span>
-            </h1>
+          <div className="hero-copy-block">
+            <p className="eyebrow">Model Optimized Representation for Prompt Handoffs</p>
+            <h1 id="page-title">Structured context, compiled with receipts.</h1>
+            <p className="hero-copy">
+              MORPH turns one complete dataset into several reversible model-facing layouts,
+              measures the text a model would actually receive, and explains every gate between a
+              candidate and the selected plan.
+            </p>
+            <div className="hero-actions">
+              <a className="button primary" href="#compiler">
+                Open the workbench <span aria-hidden="true">↓</span>
+              </a>
+              <span>Local first · no account · no hidden model call</span>
+            </div>
           </div>
-          <p className="hero-copy">
-            Compare legal physical layouts for one complete dataset. MORPH measures the exact
-            rendered text with a named tokenizer, verifies recovery, and explains why a candidate
-            wins or stays ineligible.
-          </p>
+          <figure className="hero-mark">
+            <img src="/morph-mark.jpg" alt="" aria-hidden="true" />
+            <figcaption>
+              <span>morph-artifact/1</span>
+              <span>morph-context/1</span>
+              <span>lossless mode</span>
+            </figcaption>
+          </figure>
         </section>
 
-        <div className="workspace-grid">
+        <DossierBeforeWorkbench />
+
+        <div className="workspace-grid" id="compiler">
           <section className="control-panel" aria-labelledby="input-heading">
             <div className="panel-heading">
               <div>
@@ -1086,6 +1105,8 @@ export function App(): React.JSX.Element {
             </div>
           </section>
         )}
+
+        <DossierAfterWorkbench />
       </main>
 
       <footer className="app-footer">

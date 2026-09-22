@@ -31,7 +31,7 @@ result, or published package from source presence alone.
 | Offline codec and token suites | Implemented | Final run results are pending in the release report. |
 | Composed SDK package | Implemented | `@morph/sdk` re-exports the local modules and provides `createDefaultMorph()`. |
 | Compact JSON source map | Implemented | Maps JSON Pointers to UTF-16 key and value spans in compact JSON output. |
-| Browser workbench | Implemented | Runs native codecs, gated TOON, and the tokenizer in a local worker. It can also strictly import, verify, render, and decode a saved artifact without uploading it. |
+| Project website and browser workbench | Implemented | A technical project dossier surrounds the real local compiler. It runs native codecs, gated TOON, and the tokenizer in a worker, and can strictly import, verify, render, and decode a saved artifact without uploading it. |
 | Model evaluation | Bounded provider-neutral runner implemented | Builds matched compact-JSON and candidate trials, randomizes them by seed, and enforces request, concurrency, retry, timeout, output, and call-or-priced-cost limits. No provider adapter, quality profile, or Layer C run is bundled. |
 | Schema registry | Implemented optional extension | Includes bounded in-memory and local-filesystem stores, content-addressed bundles, reference creation, and hydration back to self-contained artifacts. |
 | Jev planner | Implemented optional adapter, live test not run | Provides bounded access-pattern classification and deterministic fallback. It is not wired into core selection and is not evidence of model quality. |
@@ -100,7 +100,7 @@ restricted to the current workspace by lexical and resolved-parent checks. Use
 `--input -` to read JSON or an artifact from standard input where the command documents
 that option.
 
-## Browser workbench
+## Project website and browser workbench
 
 Start the local Vite server:
 
@@ -108,13 +108,19 @@ Start the local Vite server:
 pnpm workbench
 ```
 
-Open the printed loopback URL. The workbench includes synthetic uniform, nested,
+Open the printed loopback URL. The site documents the use case, preservation contract,
+compiler pipeline, representation families, policy model, release evidence, trust
+boundaries, and canonical repository references. The embedded workbench includes
+synthetic uniform, nested,
 sparse, repeated-string, multilingual, and tiny examples. It compiles in a worker,
 rejects stale worker results, supports cancellation, and can download the context,
 artifact, explain report, and restored JSON. A user can import a local artifact of up to
 20 MiB; the worker applies the strict artifact parser, verification, rendering, and
 decoding paths before displaying it. The file remains local. The workbench does not use
 analytics, browser storage, remote fonts, or model calls.
+
+See [the website implementation notes](docs/website.md) for its information architecture,
+claim sources, asset provenance, and deployment boundary.
 
 ## Offline verification commands
 
@@ -208,6 +214,7 @@ development oracle and is not a runtime dependency.
 - [Security and privacy](docs/security.md)
 - [Dependencies](docs/dependencies.md)
 - [Release process](docs/release.md)
+- [Project website](docs/website.md)
 - [Current release report](RELEASE_REPORT.md)
 - [Product specification](SPEC.md)
 - [Primary references](REFERENCES.md)

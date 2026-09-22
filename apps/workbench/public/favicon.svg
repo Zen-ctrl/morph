@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>MORPH</title>
+  <defs>
+    <linearGradient id="g" x1="8" y1="12" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7137f5"/>
+      <stop offset="0.48" stop-color="#2456ff"/>
+      <stop offset="1" stop-color="#19dde8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#07122f"/>
+  <path d="M12 47V17l20 18 20-18v30" fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="12" cy="18" r="4" fill="#b777ff"/>
+  <circle cx="52" cy="18" r="4" fill="#7ff7ef"/>
+</svg>
