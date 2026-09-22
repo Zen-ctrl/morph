@@ -1,0 +1,494 @@
+{
+  "manifestVersion": "morph-offline-conformance/1",
+  "generatedAt": "2026-09-22T06:31:40.208Z",
+  "tokenizer": {
+    "id": "o200k_base",
+    "revision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d"
+  },
+  "modelQuality": "not-run",
+  "provenance": {
+    "benchmark": {
+      "benchmarkManifestVersion": "morph-benchmark-manifest/1",
+      "fixtureVersion": "synthetic-v2",
+      "seed": 20260921
+    },
+    "git": {
+      "commit": "92f8b09c427e9a1d7da3e9aed354bff530d6a538",
+      "dirty": false
+    },
+    "environment": {
+      "node": "24.19.0",
+      "platform": "win32",
+      "architecture": "x64",
+      "cpuModel": "AMD Ryzen 7 5800XT 8-Core Processor            ",
+      "logicalCpuCount": 16
+    },
+    "fixtureSetDigest": "5876e10bdcc16254ba79b117224b3d73908799fab7be081665bac4cd844ccc6a"
+  },
+  "settings": {
+    "network": "disabled",
+    "mode": "lossless",
+    "policy": "economy-experimental",
+    "objective": "prompt-tokens",
+    "encoders": [
+      "json-compact@1",
+      "json-lines@1",
+      "rows-delimited@1",
+      "columns-json@1",
+      "path-value@1",
+      "toon@4.1.1"
+    ]
+  },
+  "denominators": {
+    "fixtures": 9,
+    "candidatePlans": 64,
+    "endToEndCases": 9
+  },
+  "total": 73,
+  "passed": 70,
+  "failed": 0,
+  "inapplicable": 3,
+  "cases": [
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "json-lines",
+      "planId": "json-lines@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\"\\t\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\",\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\"|\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\";\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "columns-json",
+      "planId": "columns-json@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/customers.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/numeric-edge.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/numeric-edge.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/numeric-edge.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "inapplicable",
+      "reason": "TOON_NUMBER_NONCANONICAL at /large"
+    },
+    {
+      "fixture": "fixtures/numeric-edge.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "inapplicable",
+      "reason": "TOON_NUMBER_NONCANONICAL at /large"
+    },
+    {
+      "fixture": "fixtures/numeric-edge.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "inapplicable",
+      "reason": "TOON_NUMBER_NONCANONICAL at /large"
+    },
+    {
+      "fixture": "fixtures/numeric-edge.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/nested.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/nested.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/nested.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/nested.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/nested.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/nested.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sparse.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sparse.json",
+      "encoding": "json-lines",
+      "planId": "json-lines@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sparse.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sparse.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sparse.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sparse.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sparse.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "json-lines",
+      "planId": "json-lines@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\"\\t\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\",\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\"|\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\";\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "columns-json",
+      "planId": "columns-json@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/repeated.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/multilingual.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/multilingual.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/multilingual.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/multilingual.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/multilingual.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/multilingual.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/tiny.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/tiny.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/tiny.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/tiny.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/tiny.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/tiny.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/adversarial.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/adversarial.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/adversarial.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/adversarial.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/adversarial.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/adversarial.json",
+      "encoding": "selected-end-to-end",
+      "planId": "json-compact",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "json-compact",
+      "planId": "json-compact@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "json-lines",
+      "planId": "json-lines@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\"\\t\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\",\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\"|\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "rows-delimited",
+      "planId": "rows-delimited@1:{\"delimiter\":\";\"}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "columns-json",
+      "planId": "columns-json@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "path-value",
+      "planId": "path-value@1:{}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\",\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"\\t\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "toon",
+      "planId": "toon@4.1.1:{\"delimiter\":\"|\",\"indentSize\":2}",
+      "status": "passed"
+    },
+    {
+      "fixture": "fixtures/sequence.json",
+      "encoding": "selected-end-to-end",
+      "planId": "columns-json",
+      "status": "passed"
+    }
+  ]
+}

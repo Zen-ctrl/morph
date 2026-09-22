@@ -1,0 +1,140 @@
+{
+  "manifestVersion": "morph-microbench/1",
+  "generatedAt": "2026-09-22T06:31:43.606Z",
+  "environment": {
+    "node": "24.19.0",
+    "platform": "win32",
+    "architecture": "x64"
+  },
+  "tokenizer": {
+    "id": "o200k_base",
+    "revision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d"
+  },
+  "modelQuality": "not-run",
+  "provenance": {
+    "benchmark": {
+      "benchmarkManifestVersion": "morph-benchmark-manifest/1",
+      "fixtureVersion": "synthetic-v2",
+      "seed": 20260921
+    },
+    "git": {
+      "commit": "92f8b09c427e9a1d7da3e9aed354bff530d6a538",
+      "dirty": false
+    },
+    "environment": {
+      "node": "24.19.0",
+      "platform": "win32",
+      "architecture": "x64",
+      "cpuModel": "AMD Ryzen 7 5800XT 8-Core Processor            ",
+      "logicalCpuCount": 16
+    },
+    "fixtureSetDigest": "08d8a02dd3a5bc6e0e652da33f8f97a34ff4762e66ba79db5815930d9687e70c"
+  },
+  "settings": {
+    "network": "disabled",
+    "mode": "lossless",
+    "warmState": "warm-after-declared-warmups"
+  },
+  "inputBytes": 226,
+  "warmupRuns": 3,
+  "sampleRuns": 20,
+  "coldTokenizerLoadMs": 345.1169,
+  "approximateHeapDeltaBytes": 172030336,
+  "denominators": {
+    "fixtures": 1,
+    "stages": 15,
+    "timingSamples": 300
+  },
+  "metrics": [
+    {
+      "stage": "parse",
+      "samples": 20,
+      "medianMs": 0.03419999999994161,
+      "p95Ms": 0.04800000000000182
+    },
+    {
+      "stage": "profile",
+      "samples": 20,
+      "medianMs": 0.04409999999995762,
+      "p95Ms": 0.06989999999996144
+    },
+    {
+      "stage": "encode:json-compact",
+      "samples": 20,
+      "medianMs": 0.02860000000009677,
+      "p95Ms": 0.03489999999999327
+    },
+    {
+      "stage": "decode:json-compact",
+      "samples": 20,
+      "medianMs": 0.056400000000053296,
+      "p95Ms": 0.08590000000003783
+    },
+    {
+      "stage": "encode:json-lines",
+      "samples": 20,
+      "medianMs": 0.023799999999937427,
+      "p95Ms": 0.03559999999993124
+    },
+    {
+      "stage": "decode:json-lines",
+      "samples": 20,
+      "medianMs": 0.05420000000003711,
+      "p95Ms": 0.0664000000000442
+    },
+    {
+      "stage": "encode:rows-delimited",
+      "samples": 20,
+      "medianMs": 0.026600000000030377,
+      "p95Ms": 0.03829999999993561
+    },
+    {
+      "stage": "decode:rows-delimited",
+      "samples": 20,
+      "medianMs": 0.07179999999993925,
+      "p95Ms": 0.10720000000003438
+    },
+    {
+      "stage": "encode:columns-json",
+      "samples": 20,
+      "medianMs": 0.025599999999940337,
+      "p95Ms": 0.03489999999999327
+    },
+    {
+      "stage": "decode:columns-json",
+      "samples": 20,
+      "medianMs": 0.03880000000003747,
+      "p95Ms": 0.05360000000007403
+    },
+    {
+      "stage": "encode:path-value",
+      "samples": 20,
+      "medianMs": 0.03489999999999327,
+      "p95Ms": 0.053599999999960346
+    },
+    {
+      "stage": "decode:path-value",
+      "samples": 20,
+      "medianMs": 0.16280000000006112,
+      "p95Ms": 0.2116999999999507
+    },
+    {
+      "stage": "render",
+      "samples": 20,
+      "medianMs": 0.06380000000001473,
+      "p95Ms": 0.06949999999994816
+    },
+    {
+      "stage": "tokenize:warm",
+      "samples": 20,
+      "medianMs": 0.8470000000000937,
+      "p95Ms": 0.9285999999999603
+    },
+    {
+      "stage": "full-compare",
+      "samples": 20,
+      "medianMs": 16.220399999999927,
+      "p95Ms": 17.1545000000001
+    }
+  ]
+}

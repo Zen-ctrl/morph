@@ -208,7 +208,7 @@ Status: **passed**
 
 ```text
 report path: reports/examples/conformance.json
-source commit: 87fb3d6b3dea887ef660e0c559f9c31fd2b8f55c
+source commit: 92f8b09c427e9a1d7da3e9aed354bff530d6a538
 fixture set: synthetic-v2, nine fixtures
 total: 73
 passed: 70
@@ -222,6 +222,7 @@ Status: **measured for local tokenizer; model quality not-run**
 
 ```text
 report path: reports/examples/tokens.json
+source commit: 92f8b09c427e9a1d7da3e9aed354bff530d6a538
 tokenizer revision: js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d
 measured candidate rows: 61 across nine fixtures
 eligible rows: 58
@@ -234,11 +235,12 @@ Status: **measured locally**
 
 ```text
 report path: reports/examples/performance.json
+source commit: 92f8b09c427e9a1d7da3e9aed354bff530d6a538
 environment: Node 24.19.0, win32 x64, AMD Ryzen 7 5800XT, 16 logical CPUs
 warmup runs: 3
 sample runs: 20 per stage
-stage summary: 15 stages and 300 timing samples; full compare median 16.875 ms, p95 18.181 ms; warm tokenizer median 0.844 ms, p95 0.986 ms
-cold tokenizer load: 320.761 ms
+stage summary: 15 stages and 300 timing samples; full compare median 16.220 ms, p95 17.155 ms; warm tokenizer median 0.847 ms, p95 0.929 ms
+cold tokenizer load: 345.117 ms
 ```
 
 Microbenchmark output is local machine evidence. Approximate heap delta is not peak
