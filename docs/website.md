@@ -69,6 +69,11 @@ as declared by `.openai/hosting.json`.
 
 ## Deployment boundary
 
-The source repository remains private. A private website deployment does not authorize a
-public repository, npm publication, GitHub release, public demo, or custom domain. The
-verified deployment URL and state are recorded in `RELEASE_REPORT.md` after publication.
+The site is deployed privately at:
+
+<https://morph-context-compiler.goeyy.chatgpt.site>
+
+Its audience is owner-only. The source repository remains private. This deployment does
+not authorize a public repository, npm publication, GitHub release, public demo, custom
+domain, or a change to the compiler's offline runtime boundary. The verified deployment
+record is retained in `RELEASE_REPORT.md`.

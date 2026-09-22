@@ -1,6 +1,6 @@
 # MORPH release report
 
-Report status: **LOCAL RELEASE COMPLETE; PRIVATE REPOSITORY VERIFIED**
+Report status: **LOCAL RELEASE COMPLETE; PRIVATE REPOSITORY AND PRIVATE WEBSITE VERIFIED**
 Specification version: `0.1.0`
 Package version: `0.1.0`
 Report date: 2026-09-22
@@ -21,6 +21,8 @@ treated as a passing result.
 | Inspected local pnpm | `10.15.0` |
 | Git branch | `main` |
 | Verified implementation commit | `87fb3d6b3dea887ef660e0c559f9c31fd2b8f55c` |
+| Verified website code commit | `1a3f2996d53fc1af0487955f2558bb5e69f73463` |
+| First private website version | `appgprj_6ab247d82f608191a012fb1456fdaec1~appgver_12a94cbaf20c8191b29609067c5f6cd0` |
 | Release evidence commit | The descendant commit containing this report and curated reports. Its SHA is provided in the final handoff because a commit cannot contain its own identity. |
 | Final working-tree state | Clean `main` tracking `origin/main`, verified after the release-evidence commit. |
 
@@ -35,8 +37,9 @@ treated as a passing result.
 | Jev adapter | **Implemented optional adapter; live test not-run** | Synthetic/offline contract behavior only. No credentialed TypeSafe request is claimed. |
 | Schema registry | **Implemented and tested optional extension** | In-memory and handle-hardened local-filesystem registries, references, hydration, packed installation, and public entry points passed. |
 | Private GitHub repository | **Created and verified private** | `https://github.com/Zen-ctrl/morph`, default branch `main`, visibility `PRIVATE`. |
-| Public release | **Not authorized** | No public visibility, npm publication, GitHub release, or hosted demo is authorized. |
-| Deployment | **Not run** | No Vercel, Firebase, or other hosted resource is required or authorized. |
+| Private project website | **Deployed and verified** | Owner-only site at `https://morph-context-compiler.goeyy.chatgpt.site`. The first website deployment used source commit `1a3f2996d53fc1af0487955f2558bb5e69f73463`. |
+| Public release | **Not authorized** | No public visibility, npm publication, GitHub release, or public demo is authorized. |
+| Other deployment | **Not run** | No Vercel or Firebase resource was created or modified. |
 
 ## Implemented local surface
 
@@ -125,10 +128,12 @@ offline benchmark commands do not depend on repository-relative fixture paths.
   candidate trials, randomizes by seed, enforces request, concurrency, retry, timeout,
   output, and call-or-priced-cost limits, and preserves complete denominators. No provider
   adapter or live result is bundled.
-- Local React/Vite workbench with native codecs, gated TOON, worker execution,
+- Local React/Vite project website and workbench with native codecs, gated TOON, worker execution,
   cancellation, request-digest stale-result protection, synthetic examples, honest
   preservation/token/quality/policy states, user-initiated downloads, and local artifact
-  import through strict parse, verify, render, and decode paths.
+  import through strict parse, verify, render, and decode paths. The surrounding dossier
+  documents the use case, invariant, compiler pipeline, format families, evidence layers,
+  policy modes, trust boundaries, developer entry points, and canonical references.
 
 ### Optional extensions
 
@@ -164,8 +169,14 @@ Every row below records an executed command or a directly verified remote state.
 | CLI inspect smoke | `0` | Customer fixture accepted as a 19-node uniform record array without exposing raw values in profile output. |
 | CLI compare smoke | `0` | 11 candidates fully evaluated; compact JSON selected at 896 visible-text tokens under the named tokenizer. |
 | CLI compile/render/verify/decode smoke | `0` | Artifact `246f514b92b50b4c3c35d3b90ea2f5e24b4f4d4ee5bfe4b3cddd0ee3919892f3` compiled, rendered, checksum-verified, bundle-decoded, and restored. |
-| Workbench production build | `0` | Vite transformed 18 modules and produced the local static build. |
+| Workbench production build | `0` | Vite transformed 19 modules and produced the local static build with the project dossier and supplied brand assets. |
 | Workbench browser smoke | `0` | Two workbench test files and five tests passed with network-blocking globals; local preview returned HTTP 200 with the root mount. |
+| Website full local verification | `0` | `pnpm run ci` checked 117 files, passed strict typecheck, passed 23 test files and 128 tests, and built all workspace packages plus the website. |
+| Website extended property suite | `0` | Five files and 28 test definitions passed with the existing 5,000-round-trip budget and seed. |
+| Website package smoke | `0` | All nine packages still packed and installed in a clean consumer after the website changes. |
+| Website visual and runtime check | `0` | Desktop and 390 px mobile layouts rendered without browser console warnings; the real compiler completed in the website and selected compact JSON with a measured 862-token render for the default workbench example. |
+| Private website deployment | `0` | Owner-only deployment `appgdep_6ab24e498a748191858bc650e94ee827` succeeded at `https://morph-context-compiler.goeyy.chatgpt.site`. |
+| Website GitHub Actions `offline-ci` | `0` | Run `35712083116` passed for website commit `1a3f2996d53fc1af0487955f2558bb5e69f73463`. |
 | CLI conformance bench | `0` | 73 cases: 70 passed, 0 failed, 3 correctly inapplicable across nine fixtures. |
 | CLI token bench | `0` | 61 complete rendered candidate rows measured across nine fixtures; 58 were policy-eligible. |
 | CLI performance bench | `0` | 15 stages, 3 warmups, and 20 measured samples per stage on Node 24.19.0, Windows x64. |
@@ -306,8 +317,8 @@ prompt-cache experiment: not-run
     local tool rather than a multi-tenant authorization boundary.
 11. Registry references are not model-ready and require verified local hydration.
 12. Jev defaults to a movable request alias and has not passed a live contract test.
-13. No owner license, npm publication, release, hosted demo, or public visibility has
-    been selected.
+13. No owner license, npm publication, GitHub release, public demo, or public visibility
+    has been selected. The project website is owner-only.
 
 ## Repository and publication state
 
@@ -320,11 +331,11 @@ prompt-cache experiment: not-run
 | Visibility | `PRIVATE` |
 | Default branch | `main` |
 | Push result | Successful; local `main` tracks `origin/main` |
-| Offline CI run | Passed: `https://github.com/Zen-ctrl/morph/actions/runs/35694875841` |
+| Offline CI run | Core release passed: `https://github.com/Zen-ctrl/morph/actions/runs/35694875841`; website update passed: `https://github.com/Zen-ctrl/morph/actions/runs/35712083116` |
 | npm packages | Not published |
 | GitHub release | Not created |
 | Public repository | Not authorized |
-| Hosted workbench | Not deployed |
+| Private project website | Deployed owner-only: `https://morph-context-compiler.goeyy.chatgpt.site` |
 | Firebase resources | Not created or modified |
 | Vercel resources | Not created or modified |
 
