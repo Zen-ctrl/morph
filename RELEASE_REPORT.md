@@ -1,13 +1,13 @@
 # MORPH release report
 
-Report status: **PENDING FINAL VERIFICATION AND PRIVATE REPOSITORY HANDOFF**
+Report status: **LOCAL RELEASE COMPLETE; PRIVATE REPOSITORY VERIFIED**
 Specification version: `0.1.0`
 Package version: `0.1.0`
 Report date: 2026-09-22
 
-This is the initial implementation report. Fields marked `PENDING` must be replaced only
-after the named command or remote-state check actually runs. Source presence is not a
-passing test result.
+This is the verified initial implementation report. The recorded commands were executed
+against the implementation commit identified below. Source presence alone was not
+treated as a passing result.
 
 ## Project identity
 
@@ -19,21 +19,22 @@ passing test result.
 | pnpm requirement | `10.15.0` |
 | Inspected local Node.js | `24.19.0` |
 | Inspected local pnpm | `10.15.0` |
-| Git branch before final handoff | `main` |
-| Final commit | `[PENDING FINAL GIT STEP]` |
-| Final working-tree state | `[PENDING FINAL GIT STEP]` |
+| Git branch | `main` |
+| Verified implementation commit | `87fb3d6b3dea887ef660e0c559f9c31fd2b8f55c` |
+| Release evidence commit | The descendant commit containing this report and curated reports. Its SHA is provided in the final handoff because a commit cannot contain its own identity. |
+| Final working-tree state | Clean `main` tracking `origin/main`, verified after the release-evidence commit. |
 
 ## Release conclusions
 
 | Area | Status | Evidence or limitation |
 | --- | --- | --- |
-| Local implementation | **Code present, final verification pending** | SDK, core, codecs, tokenizer, planner, CLI, evaluation, workbench, schema registry, and optional Jev adapter are present. Required final commands are pending below. |
-| Data preservation | **PENDING FINAL TEST RUN** | Native and TOON tests exist. No pass count is recorded here before execution. |
-| Token measurement | **Implemented, final suite pending** | Complete `MORPH-PROMPT/1` text is counted with the named local tokenizer. Benchmark rows are pending. |
+| Local implementation | **Complete locally** | SDK, core, codecs, tokenizer, planner, CLI, evaluation, workbench, schema registry, and optional Jev adapter passed the recorded offline verification. |
+| Data preservation | **Verified on required suites** | 128 ordinary tests, the extended seeded property suite, and 70 applicable offline conformance cases passed with zero failures. |
+| Token measurement | **Verified for the named tokenizer** | 61 complete rendered candidate prompts were measured across nine synthetic fixtures. Counts are exact for the named local tokenizer only. |
 | Model comprehension | **Not evaluated** | A bounded provider-neutral runner is present, but no provider adapter, live model call, measured manifest, or quality profile is bundled. |
 | Jev adapter | **Implemented optional adapter; live test not-run** | Synthetic/offline contract behavior only. No credentialed TypeSafe request is claimed. |
-| Schema registry | **Implemented optional extension; final test result pending** | In-memory and handle-hardened local-filesystem registries, references, and hydration are present. |
-| Private GitHub repository | **PENDING FINAL REPOSITORY STEP** | The requested private remote must be created, pushed, and queried before a URL is recorded. |
+| Schema registry | **Implemented and tested optional extension** | In-memory and handle-hardened local-filesystem registries, references, hydration, packed installation, and public entry points passed. |
+| Private GitHub repository | **Created and verified private** | `https://github.com/Zen-ctrl/morph`, default branch `main`, visibility `PRIVATE`. |
 | Public release | **Not authorized** | No public visibility, npm publication, GitHub release, or hosted demo is authorized. |
 | Deployment | **Not run** | No Vercel, Firebase, or other hosted resource is required or authorized. |
 
@@ -143,93 +144,101 @@ offline benchmark commands do not depend on repository-relative fixture paths.
 - The package smoke script packs all nine Node packages, including the optional schema
   registry and Jev planner, and exercises their public entry points in a clean consumer.
   Dependency installation may query the package registry when pnpm metadata is absent;
-  the installed runtime checks keep MORPH networking disabled. Its actual result remains
-  pending below.
+  the installed runtime checks keep MORPH networking disabled. The smoke passed locally
+  and in GitHub Actions.
 
 ## Commands and actual outcomes
 
-The final operator must replace every pending row with the actual exit code and concise
-result. Do not mark a command passed from source review.
+Every row below records an executed command or a directly verified remote state.
 
 | Command | Exit code | Result |
 | --- | ---: | --- |
-| `pnpm install --frozen-lockfile` | `[PENDING]` | `[PENDING FINAL RUN]` |
-| `pnpm morph doctor` | `[PENDING]` | `[PENDING FINAL RUN]` |
-| `pnpm lint` | `[PENDING]` | `[PENDING FINAL RUN]` |
-| `pnpm typecheck` | `[PENDING]` | `[PENDING FINAL RUN]` |
-| `pnpm test` | `[PENDING]` | `[PENDING: passed, failed, skipped counts]` |
-| `pnpm test:extended` | `[PENDING]` | `[PENDING: generated case count, seed, passed/failed]` |
-| `pnpm build` | `[PENDING]` | `[PENDING FINAL RUN]` |
-| `pnpm smoke:package` | `[PENDING]` | `[PENDING FINAL RUN]` |
-| CLI inspect smoke | `[PENDING]` | `[PENDING FINAL RUN]` |
-| CLI compare smoke | `[PENDING]` | `[PENDING FINAL RUN]` |
-| CLI compile/render/verify/decode smoke | `[PENDING]` | `[PENDING FINAL RUN AND ARTIFACT PATHS]` |
-| Workbench production build | `[PENDING]` | `[PENDING FINAL RUN]` |
-| Workbench browser smoke | `[PENDING]` | `[PENDING FINAL RUN]` |
-| `pnpm bench:conformance` | `[PENDING]` | `[PENDING: total, passed, failed, inapplicable]` |
-| `pnpm bench:tokens` | `[PENDING]` | `[PENDING: measured rows and report path]` |
-| `pnpm bench:performance` | `[PENDING]` | `[PENDING: environment, stages, report path]` |
+| `pnpm install --frozen-lockfile` | `0` | Lockfile current; all 11 workspace projects already up to date. |
+| `pnpm morph doctor` | `0` | Node range valid; six encoders registered; both tokenizer asset digests matched; network disabled; model quality not-run. |
+| `pnpm lint` | `0` | Biome checked 114 files with no fixes required. |
+| `pnpm typecheck` | `0` | Root strict TypeScript project passed. |
+| `pnpm test` | `0` | 23 files and 128 tests passed; zero failed or skipped. |
+| `pnpm test:extended` | `0` | Five files and 28 test definitions passed with seed 20260921. The 5,000 property budget generated 2,500 general inputs and 625 uniform-table inputs, exercising at least 5,000 complete native bundle round trips. |
+| `pnpm build` | `0` | All nine Node packages and the React/Vite workbench built successfully. |
+| `pnpm smoke:package` | `0` | All nine packages packed and installed in a clean consumer; installed CLI conformance, SDK decode, registry, and Jev fallback passed. |
+| CLI inspect smoke | `0` | Customer fixture accepted as a 19-node uniform record array without exposing raw values in profile output. |
+| CLI compare smoke | `0` | 11 candidates fully evaluated; compact JSON selected at 896 visible-text tokens under the named tokenizer. |
+| CLI compile/render/verify/decode smoke | `0` | Artifact `246f514b92b50b4c3c35d3b90ea2f5e24b4f4d4ee5bfe4b3cddd0ee3919892f3` compiled, rendered, checksum-verified, bundle-decoded, and restored. |
+| Workbench production build | `0` | Vite transformed 18 modules and produced the local static build. |
+| Workbench browser smoke | `0` | Two workbench test files and five tests passed with network-blocking globals; local preview returned HTTP 200 with the root mount. |
+| CLI conformance bench | `0` | 73 cases: 70 passed, 0 failed, 3 correctly inapplicable across nine fixtures. |
+| CLI token bench | `0` | 61 complete rendered candidate rows measured across nine fixtures; 58 were policy-eligible. |
+| CLI performance bench | `0` | 15 stages, 3 warmups, and 20 measured samples per stage on Node 24.19.0, Windows x64. |
 | Development-only Python tokenizer oracle | `0` | Official `tiktoken` 0.14.0 `encode_ordinary`: 7 fixture cases checked, 0 mismatches. |
-| Dependency audit | `[PENDING]` | `[PENDING: command and actual findings]` |
-| License review | n/a | `[PENDING REVIEW]` |
-| SBOM generation | n/a | `[PENDING: generated path or not generated]` |
-| GitHub Actions `offline-ci` | `[PENDING]` | `[PENDING: run state and verified URL after push]` |
+| Dependency audit | `0` | `pnpm audit --json`: 0 info, low, moderate, high, or critical advisories across 222 dependencies. |
+| License review | `0` | `pnpm licenses list --json` reviewed installed metadata: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT OR Apache-2.0, and MPL-2.0. No owner license was selected. |
+| SBOM generation | n/a | Not generated because no SBOM tool was selected for this private local release. The exact lockfile and license inventory are retained. |
+| GitHub Actions `offline-ci` | `0` | Run `35694875841` passed every job for commit `87fb3d6`; verified at `https://github.com/Zen-ctrl/morph/actions/runs/35694875841`. |
+
+The first CI attempt, run `35694671741`, failed only because the clean-consumer install
+used strict pnpm offline resolution without cached registry metadata. Commit `87fb3d6`
+changed installation to prefer the cache while permitting dependency metadata retrieval,
+then kept every installed MORPH runtime check offline. The corrected workflow passed.
 
 ## Acceptance summary
 
 | Acceptance area | Status |
 | --- | --- |
-| JSON input and IR edge cases | `[PENDING FINAL TEST RUN]` |
-| JavaScript-value rejection | `[PENDING FINAL TEST RUN]` |
-| Native codec round trips | `[PENDING FINAL TEST RUN]` |
-| TOON gates and conformance | `[PENDING FINAL TEST RUN]` |
-| Tamper and malformed decode rejection | `[PENDING FINAL TEST RUN]` |
-| Self-contained rendered-context reconstruction | `[PENDING FINAL TEST RUN]` |
-| Full-render tokenizer selection | `[PENDING FINAL TEST RUN]` |
-| Budget, candidate, and timeout behavior | `[PENDING FINAL TEST RUN]` |
-| Schema validation and numeric fail-closed path | `[PENDING FINAL TEST RUN]` |
-| Deterministic artifact identity | `[PENDING FINAL TEST RUN]` |
-| Unicode source-map offsets | `[PENDING FINAL TEST RUN]` |
-| CLI file and exit behavior | `[PENDING FINAL TEST RUN]` |
-| Workbench offline, artifact-import, stale-result, and accessibility behavior | `[PENDING FINAL TEST RUN]` |
-| Schema registry and hydration | `[PENDING FINAL TEST RUN]` |
-| Jev offline fallback and response validation | `[PENDING FINAL TEST RUN]` |
+| JSON input and IR edge cases | Passed |
+| JavaScript-value rejection | Passed |
+| Native codec round trips | Passed |
+| TOON gates and conformance | Passed; three precision-sensitive plans were correctly inapplicable |
+| Tamper and malformed decode rejection | Passed |
+| Self-contained rendered-context reconstruction | Passed |
+| Full-render tokenizer selection | Passed |
+| Budget, candidate, and timeout behavior | Passed |
+| Schema validation and numeric fail-closed path | Passed |
+| Deterministic artifact identity | Passed |
+| Unicode source-map offsets | Passed |
+| CLI file and exit behavior | Passed |
+| Workbench offline, artifact-import, stale-result, and accessibility behavior | Passed |
+| Schema registry and hydration | Passed |
+| Jev offline fallback and response validation | Passed; live call not-run |
 
 ## Benchmark results
 
 ### Codec conformance
 
-Status: **PENDING FINAL RUN**
+Status: **passed**
 
 ```text
-report path: [PENDING]
-total: [PENDING]
-passed: [PENDING]
-failed: [PENDING]
-inapplicable: [PENDING]
+report path: reports/examples/conformance.json
+source commit: 87fb3d6b3dea887ef660e0c559f9c31fd2b8f55c
+fixture set: synthetic-v2, nine fixtures
+total: 73
+passed: 70
+failed: 0
+inapplicable: 3
 ```
 
 ### Token measurements
 
-Status: **PENDING FINAL RUN**
+Status: **measured for local tokenizer; model quality not-run**
 
 ```text
-report path: [PENDING]
-tokenizer revision: [PENDING CONFIRMATION]
-measured candidate rows: [PENDING]
-claims derived from results: none until reviewed
+report path: reports/examples/tokens.json
+tokenizer revision: js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d
+measured candidate rows: 61 across nine fixtures
+eligible rows: 58
+claims derived from results: tokenizer-specific fixture measurements only; no universal savings or quality claim
 ```
 
 ### Performance microbenchmarks
 
-Status: **PENDING FINAL RUN**
+Status: **measured locally**
 
 ```text
-report path: [PENDING]
-environment: [PENDING]
-warmup runs: [PENDING]
-sample runs: [PENDING]
-stage summary: [PENDING]
+report path: reports/examples/performance.json
+environment: Node 24.19.0, win32 x64, AMD Ryzen 7 5800XT, 16 logical CPUs
+warmup runs: 3
+sample runs: 20 per stage
+stage summary: 15 stages and 300 timing samples; full compare median 16.875 ms, p95 18.181 ms; warm tokenizer median 0.844 ms, p95 0.986 ms
+cold tokenizer load: 320.761 ms
 ```
 
 Microbenchmark output is local machine evidence. Approximate heap delta is not peak
@@ -302,14 +311,14 @@ prompt-cache experiment: not-run
 
 | Field | Value |
 | --- | --- |
-| GitHub authentication | `[PENDING FINAL REPOSITORY STEP]` |
-| Remote owner | `[PENDING FINAL REPOSITORY STEP]` |
-| Repository | `[PENDING FINAL REPOSITORY STEP]` |
-| Verified URL | `[PENDING FINAL REPOSITORY STEP]` |
-| Visibility | `[PENDING, must be private]` |
-| Default branch | `[PENDING FINAL REPOSITORY STEP]` |
-| Push result | `[PENDING FINAL REPOSITORY STEP]` |
-| Offline CI run | `[PENDING FINAL REPOSITORY STEP]` |
+| GitHub authentication | Authenticated local GitHub CLI account `Zen-ctrl` |
+| Remote owner | `Zen-ctrl` |
+| Repository | `morph` |
+| Verified URL | `https://github.com/Zen-ctrl/morph` |
+| Visibility | `PRIVATE` |
+| Default branch | `main` |
+| Push result | Successful; local `main` tracks `origin/main` |
+| Offline CI run | Passed: `https://github.com/Zen-ctrl/morph/actions/runs/35694875841` |
 | npm packages | Not published |
 | GitHub release | Not created |
 | Public repository | Not authorized |
@@ -320,14 +329,16 @@ prompt-cache experiment: not-run
 ## Generated artifact paths
 
 ```text
-compiled smoke artifact: [PENDING]
-rendered context: [PENDING]
-restored JSON: [PENDING]
-explain report: [PENDING]
-conformance report: [PENDING]
-token report: [PENDING]
-performance report: [PENDING]
+compiled smoke artifact: artifacts/release-customers.morph.json
+rendered context: artifacts/release-customers.context.txt
+restored JSON: artifacts/release-customers.restored.json
+explain report: reports/examples/release-explain.json
+comparison report: reports/examples/customers-comparison.json
+conformance report: reports/examples/conformance.json and reports/examples/conformance.md
+token report: reports/examples/tokens.json and reports/examples/tokens.md
+performance report: reports/examples/performance.json and reports/examples/performance.md
 ```
 
-The final handoff must replace these placeholders with verified paths or explicitly state
-that an artifact was not retained.
+The three artifact files are intentionally ignored local outputs. The curated synthetic
+reports are committed. No dataset, artifact, or report was uploaded outside the private
+GitHub repository.
