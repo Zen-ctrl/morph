@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: offline-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify:
     name: Offline compiler verification
@@ -35,29 +39,5 @@ jobs:
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check formatting and lint
-        run: pnpm lint
-
-      - name: Check strict types
-        run: pnpm typecheck
-
-      - name: Run unit, property, integration, security, and browser tests
-        run: pnpm test
-
-      - name: Build all packages and the workbench
-        run: pnpm build
-
-      - name: Install packed packages and run an offline-runtime smoke
-        run: pnpm smoke:package
-
-      - name: Run CLI smoke path
-        run: |
-          pnpm morph doctor
-          pnpm morph compare --input fixtures/examples/customers.json --task-file fixtures/examples/lookup.task.txt --target local-o200k-base --policy economy-experimental
-          pnpm morph compile --input fixtures/examples/customers.json --task-file fixtures/examples/lookup.task.txt --target local-o200k-base --policy compatibility --output artifacts/ci-smoke.morph.json
-          pnpm morph render --input artifacts/ci-smoke.morph.json --output artifacts/ci-smoke.context.txt
-          pnpm morph decode --input artifacts/ci-smoke.morph.json --output artifacts/ci-smoke.restored.json
-          pnpm morph verify --input artifacts/ci-smoke.morph.json
-
-      - name: Run small offline conformance suite
-        run: pnpm morph bench --suite conformance --offline
+      - name: Run offline collaboration and compiler verification
+        run: pnpm verify:ci

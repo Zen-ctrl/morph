@@ -43,21 +43,37 @@ registrations and tokenizer availability without credentials or billable calls.
 
 ## Required local verification
 
-Run these commands and record the exact result, duration where useful, and any failure:
+The pull-request baseline is shared with CI:
 
 ```console
+pnpm verify:pr
+```
+
+The complete automated test and benchmark sequence is:
+
+```console
+pnpm verify:release
+```
+
+Those scripts compose the following commands. Record the exact result, duration where
+useful, and any failure:
+
+```console
+pnpm check:repo
 pnpm lint
 pnpm typecheck
 pnpm test
-pnpm test:extended
 pnpm build
 pnpm smoke:package
+pnpm verify:cli
 pnpm bench:conformance
+pnpm test:extended
 pnpm bench:tokens
 pnpm bench:performance
 ```
 
-Also run real CLI and browser smoke paths:
+`pnpm verify:release` includes the real CLI smoke path. Also perform the browser checks
+below, and use these individual CLI commands when diagnosing a failure:
 
 ```console
 pnpm morph inspect --input fixtures/examples/customers.json
@@ -104,11 +120,13 @@ networking disabled.
 
 `.github/workflows/ci.yml` runs on pushes, pull requests, and manual dispatch with
 read-only repository-content permission. It selects Node.js 24.19.0 and pnpm 10.15.0,
-installs from the frozen lockfile, then runs lint, strict type checking, the ordinary
-test suite, all builds, the clean package-consumer smoke, a CLI compile/render/decode and
-verify path, and the small offline conformance suite. `MORPH_ALLOW_NETWORK` is set to
-`false`. The workflow contains no provider credentials, paid evaluator, deployment,
-package publication, or report upload.
+installs from the frozen lockfile, then runs `pnpm verify:ci`. That command checks repository
+metadata, runs the pull-request suite, exercises a clean package consumer, completes a CLI
+compile/render/decode and verify path, and runs the small offline conformance suite.
+`MORPH_ALLOW_NETWORK` is set to
+`false`. Concurrent runs for the same ref are cancelled in favor of the newest commit. The
+workflow contains no provider credentials, paid evaluator, deployment, package publication,
+or report upload.
 
 The extended property budget, token report, and performance microbenchmarks remain local
 release commands rather than automatic pull-request jobs. Source presence does not prove
@@ -223,9 +241,10 @@ Recommended description:
 > the source data, and explains its choices. Includes a local SDK, CLI, workbench, and
 > evaluation tools.
 
-A private repository is not a public release. Do not create an npm publication, GitHub
-release, public repository, hosted demo, Firebase resource, or Vercel deployment without
-separate explicit authorization.
+A private repository is not a public package release. The existing MORPH Vercel website is
+authorized by ADR 0002. Do not create an npm publication, GitHub release, public repository,
+Firebase resource, additional deployment project, or materially broader hosted capability
+without separate explicit authorization.
 
 ## Final report requirements
 

@@ -1,8 +1,15 @@
-# Start here: MORPH build handoff
+# Historical: MORPH initial build handoff
+
+> This file preserves the original implementation handoff. MORPH has already been
+> initialized and built. Current contributors should start with `README.md`,
+> `CONTRIBUTING.md`, and `docs/README.md`. The canonical specification is now `SPEC.md`.
 
 ## How to use this package
 
-Place this package in a new local project directory. Give the coding agent access to these files. The canonical product specification is `MORPH_SPEC.md`; the implementation repository should store the same content as `SPEC.md`.
+The original handoff expected a new local project and an attached file named
+`MORPH_SPEC.md`. That content now lives at the repository root as `SPEC.md`. The
+instructions below are historical and must not be treated as the current development or
+publication procedure.
 
 `AGENTS.md` defines execution rules. `REFERENCES.md` contains the primary documentation checked while preparing the specification. The included fixtures are synthetic test inputs, not measured benchmark results.
 

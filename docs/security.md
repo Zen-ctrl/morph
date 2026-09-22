@@ -198,9 +198,12 @@ The workbench:
 - creates in-memory download blobs only after user action;
 - renders data and errors through React text escaping or `<pre>` text, not raw HTML.
 
-Opening the workbench still requires loading its static files from the chosen local or
-hosted origin. A future hosted deployment needs an explicit hosting and content-security
-review. No hosted demo is part of the local release.
+Opening the workbench requires loading its static files from the selected local or hosted
+origin. The authorized Vercel site serves the same static browser build, supplied artwork,
+synthetic examples, and white-paper PDF. It has no account system, analytics, hosted
+compiler, automatic input upload, provider call, or remote tokenizer download. Any new
+hosting project, server function, storage, analytics, or user-data collection requires a
+separate security and authorization review.
 
 ## Filesystem handling
 

@@ -1,6 +1,6 @@
 # ADR 0001: Local TypeScript compiler toolchain and release boundary
 
-Status: Accepted for implementation candidate 0.1.0
+Status: Accepted for 0.1.0. The hosted-deployment clause is partially superseded by ADR 0002.
 Date: 2026-09-22
 
 ## Context

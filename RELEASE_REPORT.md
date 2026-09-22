@@ -1,6 +1,6 @@
 # MORPH release report
 
-Report status: **LOCAL RELEASE COMPLETE; PRIVATE REPOSITORY AND VERCEL WEBSITE VERIFIED**
+Report status: **LOCAL RELEASE COMPLETE; PRIVATE REPOSITORY, COLLABORATION SURFACE, AND VERCEL WEBSITE VERIFIED**
 Specification version: `0.1.0`
 Package version: `0.1.0`
 Report date: 2026-09-22
@@ -20,10 +20,10 @@ treated as a passing result.
 | Inspected local Node.js | `24.19.0` |
 | Inspected local pnpm | `10.15.0` |
 | Git branch | `main` |
-| Verified implementation commit | `87fb3d6b3dea887ef660e0c559f9c31fd2b8f55c` |
+| Verified implementation and site commit | `38e608c16e37fa1b7bc6984b9773ff019ddbfafc` |
 | Vercel project | Existing project `morph`, ID `prj_OBvb3QUVfCzNqSoPj7U4Xu2xpObA`, scope `kwkmedias-4023s-projects` |
 | Vercel production URL | `https://morph-one-jade.vercel.app` |
-| Release evidence commit | The descendant commit containing this report and curated reports. Its SHA is provided in the final handoff because a commit cannot contain its own identity. |
+| Collaboration organization commit | The descendant commit containing this report and the contributor infrastructure. Its SHA is provided in the final handoff because a commit cannot contain its own identity. |
 | Final working-tree state | Clean `main` tracking `origin/main`, verified after the release-evidence commit. |
 
 ## Release conclusions
@@ -37,6 +37,7 @@ treated as a passing result.
 | Jev adapter | **Implemented optional adapter; live test not-run** | Synthetic/offline contract behavior only. No credentialed TypeSafe request is claimed. |
 | Schema registry | **Implemented and tested optional extension** | In-memory and handle-hardened local-filesystem registries, references, hydration, packed installation, and public entry points passed. |
 | Private GitHub repository | **Created and verified private** | `https://github.com/Zen-ctrl/morph`, default branch `main`, visibility `PRIVATE`. |
+| Collaboration readiness | **Organized** | Contributor, governance, conduct, support, and security guides; issue forms; pull request template; advisory CODEOWNERS; decision template; changelog; scoped labels; and Dependabot configuration are present. |
 | Vercel project website | **Deployed and verified** | The existing Vercel project was reused at `https://morph-one-jade.vercel.app`; no second Vercel project was created. |
 | Website publication | **Authorized for this site** | The user explicitly requested the Vercel website and production link. This does not authorize a public GitHub repository, npm publication, or GitHub release. |
 | Other deployment | **Not run** | No Firebase resource was created or modified. |
@@ -164,7 +165,10 @@ Every row below records an executed command or a directly verified remote state.
 | --- | ---: | --- |
 | `pnpm install --frozen-lockfile` | `0` | Lockfile current; all 11 workspace projects already up to date. |
 | `pnpm morph doctor` | `0` | Node range valid; six encoders registered; both tokenizer asset digests matched; network disabled; model quality not-run. |
-| `pnpm lint` | `0` | Biome checked 121 files with no fixes required. |
+| `pnpm check:repo` | `0` | 181 authored files, 36 Markdown files, and 9 GitHub YAML files passed required-file, dash-policy, local-link, and YAML-syntax checks. |
+| `pnpm verify:pr` | `0` | Repository metadata passed, Biome checked 122 files, strict typecheck passed, 24 files and 130 tests passed, and every workspace package plus the workbench built. |
+| `pnpm verify:ci` | `0` | The exact GitHub Actions command passed repository checks, pull-request verification, clean-consumer package smoke, doctor, compare, compile, render, decode, verify, and the 73-case conformance suite. |
+| `pnpm lint` | `0` | Biome checked 122 files with no fixes required. |
 | `pnpm typecheck` | `0` | Root strict TypeScript project passed. |
 | `pnpm test` | `0` | 24 files and 130 tests passed; zero failed or skipped. |
 | `pnpm test:extended` | `0` | Five files and 28 test definitions passed with seed 20260921. The 5,000 property budget generated 2,500 general inputs and 625 uniform-table inputs, exercising at least 5,000 complete native bundle round trips. |
@@ -180,15 +184,16 @@ Every row below records an executed command or a directly verified remote state.
 | Website package smoke | `0` | All nine packages still packed and installed in a clean consumer after the website changes. |
 | Website visual and runtime check | `0` | Dark and light desktop themes and 390 px mobile layouts rendered without console warnings or page-width overflow; the real compiler completed in the browser and selected compact JSON with a measured 862-token render for the default example. |
 | White paper verification | `0` | The HTML paper rendered locally. The PDF contains 23 nonblank pages, is 325,302 bytes, has no extracted em dash or en dash characters, keeps extracted words within page bounds, and is byte-identical to the website copy. |
+| Contributor white paper build smoke | `0` | The documented Python generator compiled, produced canonical and website-copy PDFs, and verified byte-identical SHA-256 `efc889f7a8bc541437fe8038cf9302d6a263438dd705110263bd64b99b493874`. |
 | Existing Vercel website deployment | `0` | Project `morph` was reused at `https://morph-one-jade.vercel.app`; no new Vercel project was created. |
 | CLI conformance bench | `0` | 73 cases: 70 passed, 0 failed, 3 correctly inapplicable across nine fixtures. |
 | CLI token bench | `0` | 61 complete rendered candidate rows measured across nine fixtures; 58 were policy-eligible. |
 | CLI performance bench | `0` | 15 stages, 3 warmups, and 20 measured samples per stage on Node 24.19.0, Windows x64. |
 | Development-only Python tokenizer oracle | `0` | Official `tiktoken` 0.14.0 `encode_ordinary`: 7 fixture cases checked, 0 mismatches. |
-| Dependency audit | `0` | `pnpm audit --json`: 0 info, low, moderate, high, or critical advisories across 222 dependencies. |
+| Dependency audit | `0` | `pnpm audit --json`: 0 info, low, moderate, high, or critical advisories across 223 dependencies. |
 | License review | `0` | `pnpm licenses list --json` reviewed installed metadata: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT OR Apache-2.0, and MPL-2.0. No owner license was selected. |
 | SBOM generation | n/a | Not generated because no SBOM tool was selected for this private local release. The exact lockfile and license inventory are retained. |
-| GitHub Actions `offline-ci` | `0` | Run `35694875841` passed every job for commit `87fb3d6`; verified at `https://github.com/Zen-ctrl/morph/actions/runs/35694875841`. |
+| GitHub Actions `offline-ci` | `0` | Run `35720680910` passed every job for commit `38e608c`; verified at `https://github.com/Zen-ctrl/morph/actions/runs/35720680910`. The final collaboration commit and its CI result are identified in the handoff. |
 
 The first CI attempt, run `35694671741`, failed only because the clean-consumer install
 used strict pnpm offline resolution without cached registry metadata. Commit `87fb3d6`
@@ -337,7 +342,11 @@ prompt-cache experiment: not-run
 | Visibility | `PRIVATE` |
 | Default branch | `main` |
 | Push result | Successful; local `main` tracks `origin/main` |
-| Offline CI run | Core release passed: `https://github.com/Zen-ctrl/morph/actions/runs/35694875841`; website update passed: `https://github.com/Zen-ctrl/morph/actions/runs/35712083116` |
+| Latest recorded offline CI run | Website and white paper source passed: `https://github.com/Zen-ctrl/morph/actions/runs/35720680910`; the final collaboration commit and run are identified in the handoff. |
+| Collaboration files | Contributor guide, governance, conduct, support, security policy, issue forms, pull request template, advisory CODEOWNERS, decision template, changelog, and dependency update configuration committed |
+| Repository labels | Existing type labels retained; area, reproduction, evidence, compatibility, and blocked-state labels added |
+| Merge settings | Squash merge only, pull request branches may be updated, and merged branches are deleted |
+| Branch protection | Not enabled because the current private-repository plan does not expose the branch-protection API; maintainer review and CODEOWNERS routing remain documented but advisory |
 | npm packages | Not published |
 | GitHub release | Not created |
 | Public repository | Not authorized |

@@ -1,0 +1,80 @@
+name: Evaluation proposal
+description: Propose an offline or bounded live evaluation with explicit evidence rules.
+title: "[Evaluation]: "
+labels:
+  - enhancement
+body:
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Evaluation layer
+      options:
+        - Layer A, codec conformance
+        - Layer B, prompt efficiency
+        - Layer C, model task quality
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Research question and preregistered decision rule
+    validations:
+      required: true
+  - type: textarea
+    id: corpus
+    attributes:
+      label: Dataset and task families
+    validations:
+      required: true
+  - type: textarea
+    id: identities
+    attributes:
+      label: Model, tokenizer, renderer, guide, and encoding identities
+      description: Use `Not applicable` only for identities genuinely outside the selected layer.
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Matched baseline and trial protocol
+    validations:
+      required: true
+  - type: textarea
+    id: separation
+    attributes:
+      label: Development and held-out separation
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Request, concurrency, retry, timeout, output, and cost limits
+    validations:
+      required: true
+  - type: textarea
+    id: retention
+    attributes:
+      label: Retention, privacy, and redaction plan
+    validations:
+      required: true
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Expected machine-readable outputs
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Evaluation checks
+      options:
+        - label: No paid provider call will run in pull-request CI.
+          required: true
+        - label: No credential or private dataset is included in this issue.
+          required: true
+        - label: Failures, refusals, invalid outputs, and truncation remain in denominators.
+          required: true
+        - label: Imported, recorded, and synthetic evidence will be labeled accurately.
+          required: true
+        - label: Smoke tests will not be presented as a qualified quality profile.
+          required: true

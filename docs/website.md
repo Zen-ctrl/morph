@@ -132,4 +132,5 @@ The owner authorized the existing Vercel website deployment and requested its li
 source repository remains private. Website deployment does not authorize npm
 publication, a GitHub release, public repository visibility, a custom domain, paid model
 evaluation, or a change to the compiler's offline runtime boundary. The verified
-deployment record belongs in `RELEASE_REPORT.md`.
+deployment record belongs in `RELEASE_REPORT.md`. The authorization boundary is recorded
+in [ADR 0002](decisions/0002-hosted-site-publication-boundary.md).

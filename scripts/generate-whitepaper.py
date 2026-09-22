@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import re
+import shutil
 from pathlib import Path
 from typing import Iterable
 
@@ -575,6 +577,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=Path("docs/white-paper.md"))
     parser.add_argument("--output", type=Path, default=Path("output/pdf/MORPH_White_Paper_v0.1.pdf"))
+    parser.add_argument("--web-copy", type=Path, default=None)
     parser.add_argument("--logo", type=Path, default=None)
     return parser.parse_args()
 
@@ -582,7 +585,16 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     build_pdf(args.source, args.output, args.logo)
+    output_bytes = args.output.read_bytes()
+    if args.web_copy is not None:
+        args.web_copy.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(args.output, args.web_copy)
+        if args.web_copy.read_bytes() != output_bytes:
+            raise RuntimeError("White-paper web copy does not match the canonical PDF.")
     print(args.output.resolve())
+    if args.web_copy is not None:
+        print(args.web_copy.resolve())
+    print(f"sha256:{hashlib.sha256(output_bytes).hexdigest()}")
 
 
 if __name__ == "__main__":

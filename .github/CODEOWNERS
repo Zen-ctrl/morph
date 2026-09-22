@@ -1,0 +1,14 @@
+# Default review routing while MORPH has one verified repository owner.
+* @Zen-ctrl
+
+# Keep product-contract and trust-boundary changes explicitly visible.
+/SPEC.md @Zen-ctrl
+/AGENTS.md @Zen-ctrl
+/.github/ @Zen-ctrl
+/docs/decisions/ @Zen-ctrl
+/docs/format.md @Zen-ctrl
+/docs/semantics.md @Zen-ctrl
+/docs/security.md @Zen-ctrl
+/packages/core/ @Zen-ctrl
+/packages/encoders/ @Zen-ctrl
+/packages/tokenizer-adapters/ @Zen-ctrl

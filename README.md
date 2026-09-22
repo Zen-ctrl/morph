@@ -1,5 +1,10 @@
 # MORPH
 
+[![offline-ci](https://github.com/Zen-ctrl/morph/actions/workflows/ci.yml/badge.svg)](https://github.com/Zen-ctrl/morph/actions/workflows/ci.yml)
+[Website](https://morph-one-jade.vercel.app) ·
+[White paper](https://morph-one-jade.vercel.app/white-paper) ·
+[Contributing](CONTRIBUTING.md)
+
 MORPH, Model Optimized Representation for Prompt Handoffs, is a local compiler for
 structured model context. It accepts JSON-compatible data, an optional schema, a task,
 a tokenizer target, and constraints. It compares reversible physical layouts, measures
@@ -12,12 +17,12 @@ token measurement, and model-task quality are separate outcomes.
 
 ## Status
 
-This repository is an implementation candidate for specification version 0.1.0. The
-source currently contains the local SDK, five native codecs, an optional official TOON
-adapter, an offline tokenizer profile, a CLI, an offline evaluation harness, and a local
-browser workbench. Final release verification is recorded in
-[`RELEASE_REPORT.md`](RELEASE_REPORT.md). Do not infer a passing release, model-quality
-result, or published package from source presence alone.
+This private repository contains the verified local implementation for specification
+version 0.1.0. It includes the SDK, five native codecs, the optional official TOON adapter,
+an offline tokenizer profile, CLI, evaluation harness, browser workbench, project website,
+and white paper. Executed release evidence is recorded in
+[`RELEASE_REPORT.md`](RELEASE_REPORT.md). Model-task quality remains not-run, and no npm
+package or GitHub release has been published.
 
 | Area | Status | Meaning |
 | --- | --- | --- |
@@ -28,7 +33,7 @@ result, or published package from source presence alone.
 | Compatibility planner | Implemented | Compact JSON remains the default without applicable quality evidence. |
 | Economy planner | Experimental | May select a smaller verified representation. This does not establish model comprehension. |
 | Validated nonbaseline selection | Gate implemented, no bundled evidence | Declared identity, confidence-bound, case-count, dataset-count, task-family, and expiry checks exist. No quality profile or live model result ships with the repository. |
-| Offline codec and token suites | Implemented | Final run results are pending in the release report. |
+| Offline codec and token suites | Verified | The recorded release run has 70 passing conformance cases, 3 correctly inapplicable cases, 61 complete prompt measurements, and no conformance failure. |
 | Composed SDK package | Implemented | `@morph/sdk` re-exports the local modules and provides `createDefaultMorph()`. |
 | Compact JSON source map | Implemented | Maps JSON Pointers to UTF-16 key and value spans in compact JSON output. |
 | Project website and browser workbench | Implemented | A technical project dossier surrounds the real local compiler. It runs native codecs, gated TOON, and the tokenizer in a worker, and can strictly import, verify, render, and decode a saved artifact without uploading it. |
@@ -52,6 +57,24 @@ Install exactly from the lockfile:
 ```console
 pnpm install --frozen-lockfile
 ```
+
+## Contributing
+
+Start with [`CONTRIBUTING.md`](CONTRIBUTING.md) and the
+[`docs/README.md`](docs/README.md) reading paths. The repository provides structured issue
+forms, a pull request verification checklist, CODEOWNERS routing, governance, security
+reporting, support boundaries, a code of conduct, and a decision-record template.
+
+The normal contributor check is:
+
+```console
+pnpm verify:pr
+```
+
+Changes to codecs, artifacts, security boundaries, package exports, benchmarks, or the
+workbench require the additional checks listed in `CONTRIBUTING.md`. Do not add a license,
+publish packages, change repository visibility, run paid evaluations, or create deployment
+resources without separate owner authorization.
 
 ## First local run
 
@@ -220,6 +243,13 @@ development oracle and is not a runtime dependency.
 
 ## Documentation
 
+- [Documentation map](docs/README.md)
+- [Contributing](CONTRIBUTING.md)
+- [Governance](GOVERNANCE.md)
+- [Code of conduct](CODE_OF_CONDUCT.md)
+- [Security reporting](SECURITY.md)
+- [Support](SUPPORT.md)
+- [Changelog](CHANGELOG.md)
 - [Architecture](docs/architecture.md)
 - [Artifact, framing, and codec formats](docs/format.md)
 - [Semantic contract](docs/semantics.md)
@@ -234,6 +264,7 @@ development oracle and is not a runtime dependency.
 - [Current release report](RELEASE_REPORT.md)
 - [Product specification](SPEC.md)
 - [Primary references](REFERENCES.md)
+- [Decision records](docs/decisions/README.md)
 
 ## Publication state
 

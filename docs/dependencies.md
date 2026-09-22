@@ -66,11 +66,12 @@ complete transitive legal review.
 | `typescript` | 5.9.3 | Strict static type checking | Apache-2.0 |
 | `vite` | 8.3.0 | Workbench development and production build | MIT |
 | `vitest` | 5.0.1 | Unit, integration, property, security, CLI, and workbench tests | MIT |
+| `yaml` | 2.9.1 | Offline syntax validation for GitHub workflow, issue-form, and dependency-update metadata | ISC |
 
 The root `pnpm.overrides` pins every transitive `esbuild` instance to `0.28.2`, and the
 lockfile records that override. This is an audit-hardening resolution for
-`GHSA-g7r4-m6w7-qqqr`. The pin itself is not a clean-audit claim. Final audit, build, and
-package-smoke outcomes remain pending in `RELEASE_REPORT.md`.
+`GHSA-g7r4-m6w7-qqqr`. The pin itself is not a clean-audit claim. Executed audit, build,
+and package-smoke outcomes are recorded in `RELEASE_REPORT.md`.
 
 The build permits install scripts only for `esbuild` and `tiktoken` through
 `onlyBuiltDependencies`.
@@ -80,8 +81,9 @@ The build permits install scripts only for `esbuild` and `tiktoken` through
 The committed white paper is built from `docs/white-paper.md` by
 `scripts/generate-whitepaper.py`. PDF authoring is a documentation workflow, not a
 runtime dependency of the SDK, CLI, compiler, or browser workbench. The recorded build
-used Python 3 with ReportLab. Poppler `pdfinfo`, `pdftoppm`, and `pdftotext`, plus
-`pdfplumber` and `pypdf`, were used for structural, visual, and extraction checks.
+used Python 3 with ReportLab 4.4.9. `pdfplumber` 0.11.9 and `pypdf` 6.10.0 were used for
+structural and extraction checks. Poppler tools may also be used for independent rendering
+and inspection. Exact Python package pins are in `requirements-docs.txt`.
 
 With those optional authoring tools installed, regenerate the canonical PDF with:
 
@@ -89,9 +91,10 @@ With those optional authoring tools installed, regenerate the canonical PDF with
 pnpm whitepaper:pdf
 ```
 
-The canonical output is `output/pdf/MORPH_White_Paper_v0.1.pdf`. The byte-identical web
-download is copied to `apps/workbench/public/morph-white-paper-v0.1.pdf`. Neither Python
-nor ReportLab is imported by a workspace package or included in the browser bundle.
+The command writes the canonical output to `output/pdf/MORPH_White_Paper_v0.1.pdf`, copies
+it to `apps/workbench/public/morph-white-paper-v0.1.pdf`, verifies byte identity, and prints
+the SHA-256 digest. Neither Python nor ReportLab is imported by a workspace package or
+included in the browser bundle.
 
 ## Package contents and clean-consumer smoke
 
@@ -116,9 +119,8 @@ in-memory schema registry, and confirms the disabled Jev classifier does not mak
 network call. The CLI package `files` list includes `dist` and `benchmark-fixtures`, so
 the installed conformance command uses packaged fixtures rather than repository-relative
 paths. The install uses pnpm's local cache when available and may query the package
-registry when metadata is absent; offline operation begins after installation. This
-describes the smoke script's coverage. Its final executed outcome is a pending
-release-report field.
+registry when metadata is absent; offline operation begins after installation. Executed
+package-smoke outcomes are recorded in `RELEASE_REPORT.md`.
 
 ## Tokenizer identity and status
 

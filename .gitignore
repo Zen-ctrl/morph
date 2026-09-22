@@ -9,6 +9,7 @@ coverage/
 artifacts/*
 !artifacts/.gitkeep
 reports/*
+!reports/README.md
 !reports/examples/
 reports/examples/*
 !reports/examples/.gitkeep

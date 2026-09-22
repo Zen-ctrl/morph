@@ -22,8 +22,13 @@
     "smoke:package": "tsx scripts/package-smoke.ts",
     "morph": "tsx packages/cli/src/index.ts",
     "workbench": "pnpm --filter @morph/workbench dev",
-    "whitepaper:pdf": "python scripts/generate-whitepaper.py --source docs/white-paper.md --output output/pdf/MORPH_White_Paper_v0.1.pdf --logo apps/workbench/public/morph-mark.jpg",
-    "ci": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+    "whitepaper:pdf": "python scripts/generate-whitepaper.py --source docs/white-paper.md --output output/pdf/MORPH_White_Paper_v0.1.pdf --web-copy apps/workbench/public/morph-white-paper-v0.1.pdf --logo apps/workbench/public/morph-mark.jpg",
+    "check:repo": "tsx scripts/check-repository-metadata.ts",
+    "verify:pr": "pnpm check:repo && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "verify:cli": "pnpm morph doctor && pnpm morph compare --input fixtures/examples/customers.json --task-file fixtures/examples/lookup.task.txt --target local-o200k-base --policy economy-experimental && pnpm morph compile --input fixtures/examples/customers.json --task-file fixtures/examples/lookup.task.txt --target local-o200k-base --policy compatibility --output artifacts/ci-smoke.morph.json --force && pnpm morph render --input artifacts/ci-smoke.morph.json --output artifacts/ci-smoke.context.txt --force && pnpm morph decode --input artifacts/ci-smoke.morph.json --output artifacts/ci-smoke.restored.json --force && pnpm morph verify --input artifacts/ci-smoke.morph.json",
+    "verify:ci": "pnpm verify:pr && pnpm smoke:package && pnpm verify:cli && pnpm morph bench --suite conformance --offline",
+    "verify:release": "pnpm verify:ci && pnpm test:extended && pnpm bench:tokens && pnpm bench:performance",
+    "ci": "pnpm verify:ci"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.14",
@@ -40,7 +45,8 @@
     "tsx": "4.23.15",
     "typescript": "5.9.3",
     "vite": "8.3.0",
-    "vitest": "5.0.1"
+    "vitest": "5.0.1",
+    "yaml": "2.9.1"
   },
   "pnpm": {
     "overrides": {
