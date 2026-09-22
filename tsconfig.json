@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@morph/core": ["packages/core/src/index.ts"],
+      "@morph/encoders": ["packages/encoders/src/index.ts"],
+      "@morph/tokenizer-adapters": ["packages/tokenizer-adapters/src/index.ts"],
+      "@morph/toon-adapter": ["packages/toon-adapter/src/index.ts"],
+      "@morph/evaluation": ["packages/evaluation/src/index.ts"],
+      "@morph/schema-registry": ["packages/schema-registry/src/index.ts"],
+      "@morph/jev-planner": ["packages/jev-planner/src/index.ts"],
+      "@morph/sdk": ["packages/sdk/src/index.ts"]
+    }
+  },
+  "include": [
+    "packages/**/*.ts",
+    "apps/**/*.ts",
+    "apps/**/*.tsx",
+    "tests/**/*.ts",
+    "scripts/**/*.ts",
+    "vitest.config.ts"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "morph-context-compiler",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A lossless representation compiler for model-facing structured context.",
+  "type": "module",
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=22.12.0 <25"
+  },
+  "scripts": {
+    "build": "pnpm -r --if-present build",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:extended": "cross-env MORPH_PROPERTY_RUNS=5000 vitest run tests/property tests/integration tests/security",
+    "bench:conformance": "pnpm --filter @morph/evaluation bench:conformance",
+    "bench:tokens": "pnpm --filter @morph/evaluation bench:tokens",
+    "bench:performance": "pnpm --filter @morph/evaluation bench:performance",
+    "smoke:package": "tsx scripts/package-smoke.ts",
+    "morph": "tsx packages/cli/src/index.ts",
+    "workbench": "pnpm --filter @morph/workbench dev",
+    "ci": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "@types/node": "24.13.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "@vitest/coverage-v8": "5.0.1",
+    "cross-env": "10.1.0",
+    "fast-check": "4.10.2",
+    "happy-dom": "20.14.5",
+    "tiktoken": "1.0.22",
+    "tsup": "8.5.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.0",
+    "vitest": "5.0.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.28.2"
+    }
+  }
+}

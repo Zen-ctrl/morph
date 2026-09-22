@@ -1,0 +1,42 @@
+{
+  "manifestVersion": "morph-benchmark-manifest/1",
+  "fixtureVersion": "synthetic-v2",
+  "seed": 20260921,
+  "qualityEvaluation": "not-run",
+  "modelEvaluation": {
+    "provider": null,
+    "status": "not-run",
+    "requiresExplicitRequestCap": true,
+    "requiresCallCapOrPricedCostCap": true
+  },
+  "generatedCorpus": {
+    "sizes": ["small", "medium", "large"],
+    "uniformTableVariants": [
+      "narrow-short-fields",
+      "narrow-long-fields",
+      "wide-short-fields",
+      "wide-long-fields"
+    ],
+    "repeatedCategoryVariants": ["small-dictionary", "large-dictionary", "low-repetition"],
+    "taskFamilies": [
+      "single-record-lookup",
+      "cross-record-comparison",
+      "multi-field-filtering",
+      "nested-path-lookup",
+      "missing-versus-null",
+      "order-sensitive",
+      "small-exact-aggregation"
+    ]
+  },
+  "fixtures": [
+    "fixtures/examples/customers.json",
+    "fixtures/conformance/numeric-edge.json",
+    "fixtures/conformance/nested.json",
+    "fixtures/conformance/sparse.json",
+    "fixtures/conformance/repeated.json",
+    "fixtures/conformance/multilingual.json",
+    "fixtures/conformance/tiny.json",
+    "fixtures/conformance/adversarial.json",
+    "fixtures/conformance/sequence.json"
+  ]
+}

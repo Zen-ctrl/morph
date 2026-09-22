@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Customer records",
+  "description": "Synthetic customer records. Revenue is expressed in whole fictional credits.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "country", "revenue", "active"],
+    "properties": {
+      "id": { "type": "string", "description": "Synthetic customer identifier" },
+      "name": { "type": "string", "description": "Display name" },
+      "country": { "type": "string", "description": "Two-letter country code" },
+      "revenue": { "type": "integer", "description": "Whole fictional credits" },
+      "active": { "type": "boolean" }
+    },
+    "additionalProperties": false
+  }
+}

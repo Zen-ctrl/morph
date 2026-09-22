@@ -1,0 +1,5 @@
+{
+  "account": { "id": "c1", "profile": { "tags": ["alpha", "beta"], "empty": {} } },
+  "flags": [true, null],
+  "events": []
+}

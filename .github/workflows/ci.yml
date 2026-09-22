@@ -1,0 +1,63 @@
+name: offline-ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Offline compiler verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MORPH_ALLOW_NETWORK: "false"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+        with:
+          version: 10.15.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24.19.0
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check formatting and lint
+        run: pnpm lint
+
+      - name: Check strict types
+        run: pnpm typecheck
+
+      - name: Run unit, property, integration, security, and browser tests
+        run: pnpm test
+
+      - name: Build all packages and the workbench
+        run: pnpm build
+
+      - name: Install packed SDK in a clean offline consumer
+        run: pnpm smoke:package
+
+      - name: Run CLI smoke path
+        run: |
+          pnpm morph doctor
+          pnpm morph compare --input fixtures/examples/customers.json --task-file fixtures/examples/lookup.task.txt --target local-o200k-base --policy economy-experimental
+          pnpm morph compile --input fixtures/examples/customers.json --task-file fixtures/examples/lookup.task.txt --target local-o200k-base --policy compatibility --output artifacts/ci-smoke.morph.json
+          pnpm morph render --input artifacts/ci-smoke.morph.json --output artifacts/ci-smoke.context.txt
+          pnpm morph decode --input artifacts/ci-smoke.morph.json --output artifacts/ci-smoke.restored.json
+          pnpm morph verify --input artifacts/ci-smoke.morph.json
+
+      - name: Run small offline conformance suite
+        run: pnpm morph bench --suite conformance --offline
