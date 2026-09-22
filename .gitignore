@@ -31,3 +31,5 @@ local-profiles/
 provider-responses/
 datasets/
 tests/.tmp-*/
+tmp/
+__pycache__/

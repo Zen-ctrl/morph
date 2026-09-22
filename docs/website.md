@@ -1,8 +1,22 @@
 # Project website
 
 The MORPH website is the narrative and interactive surface for this repository. It lives
-in `apps/workbench` and combines a technical project dossier with the real browser
-compiler. The site is not a separate mock, benchmark dashboard, or second compiler.
+in `apps/workbench` and combines a technical project dossier, a long-form white-paper
+route, and the real browser compiler. The site is not a mock benchmark dashboard or a
+second compiler.
+
+## Hosted routes
+
+- Main dossier and workbench: <https://morph-one-jade.vercel.app>
+- HTML white paper: <https://morph-one-jade.vercel.app/white-paper>
+- Reviewed PDF: <https://morph-one-jade.vercel.app/morph-white-paper-v0.1.pdf>
+
+The deployment reuses the existing Vercel project named `morph` in scope
+`kwkmedias-4023s-projects`. Its framework is Vite, its project root is
+`apps/workbench`, and its production branch is `main`. `apps/workbench/vercel.json`
+rewrites `/white-paper` to the static application entry so the route works when opened
+directly. A separate owner-only Sites deployment remains an earlier snapshot and is not
+the requested Vercel target.
 
 ## Purpose
 
@@ -11,18 +25,19 @@ The site is designed for developers and technical evaluators who need to underst
 - what MORPH compiles;
 - which semantic guarantees it makes;
 - how candidate formats become eligible or ineligible;
-- what the local tokenizer measurement does and does not establish;
+- what local tokenizer measurement does and does not establish;
 - which release evidence exists;
 - which model-quality evidence does not yet exist; and
-- how to run the actual compiler without sending input to a service.
+- how to run the real compiler without sending input to a service.
 
-The top-level narrative is a guided reading of the contracts already defined in this
-repository. The documentation index links to the canonical Markdown sources rather than
+The top-level narrative is a guided reading of the implemented contracts. The
+white-paper route provides a more formal explanation and the PDF supplies a stable,
+paginated artifact. Repository links point to canonical Markdown sources rather than
 replacing them.
 
 ## Information architecture
 
-The single-page static site contains:
+The main route retains the existing MORPH experience:
 
 1. Project thesis and current evidence state.
 2. A concrete same-data, different-task use case.
@@ -33,23 +48,68 @@ The single-page static site contains:
 7. The three-layer evidence model and curated v0.1 release figures.
 8. Planner policy and trust boundaries.
 9. CLI and SDK entry points.
-10. Links to the canonical repository documentation.
+10. Links to the white paper and canonical repository documentation.
+
+The existing graphs, pipeline visuals, candidate comparisons, and workbench controls
+remain functional. The design update changes the visual system without replacing those
+layouts.
+
+## Visual system
+
+The update adapts the CSS character of the owner's local FolliGenz recreation without
+copying its WordPress or Elementor implementation. The shared visual language includes:
+
+- navy `#181B58`, coral `#F36161`, bright blue `#1863DC`, and green `#61CE70`;
+- light surfaces `#FAFBFE`, `#F0F2F8`, and white cards;
+- dark surfaces `#080A1F`, `#0D1030`, and `#121540`;
+- thin low-contrast borders and soft navy-tinted elevation;
+- rounded cards, full-pill buttons, and a glass-like sticky header;
+- a moving multicolor treatment for the MORPH name;
+- restrained hover lift and shimmer; and
+- motion reduction when `prefers-reduced-motion` is active.
+
+No remote font is loaded. The site uses a local system stack to keep the workbench
+functional with networking disabled. The light and dark theme control initializes from
+the operating-system preference and affects only the current page session. It does not
+store input, task text, or a theme setting in browser storage.
+
+## White paper
+
+The source is `docs/white-paper.md`. The reviewed artifact is
+`output/pdf/MORPH_White_Paper_v0.1.pdf`, and a byte-identical copy is served from
+`apps/workbench/public/morph-white-paper-v0.1.pdf`. The PDF covers preservation
+semantics, architecture, codecs, framing, tokenizer scope, policies, evaluation,
+security, optional extensions, verified offline evidence, current limitations, and
+reproduction commands.
+
+Regenerate it in an authoring environment with Python and ReportLab installed:
+
+```console
+pnpm whitepaper:pdf
+```
+
+PDF generation is a documentation workflow, not a runtime dependency of MORPH.
 
 ## Claim discipline
 
-All displayed measurements come from the curated synthetic reports under
+All displayed measurements come from curated synthetic reports under
 `reports/examples` or from `RELEASE_REPORT.md`. They are labeled as local,
-tokenizer-specific evidence. The site explicitly reports model task quality as not run.
-It does not claim universal token savings, provider billing equivalence, improved model
-accuracy, or prompt-injection prevention.
+tokenizer-specific evidence. The site and white paper explicitly report model task
+quality as not run. Neither claims universal token savings, provider billing
+equivalence, improved model accuracy, prompt-injection prevention, or a successful live
+Jev integration.
 
 ## Assets and privacy
 
 The two MORPH brand images in `apps/workbench/public` were supplied by the project owner
-for this repository. The favicon is a small repository-native mark using the same palette.
-No third-party font, image CDN, analytics script, account system, or telemetry service is
-loaded. The compiler worker uses the same locally bundled tokenizer assets and registered
-codecs as the rest of the workbench.
+for this repository. The favicon is a small repository-native mark using the same
+palette. No third-party font, image CDN, analytics script, account system, or telemetry
+service is loaded. The compiler worker uses the same locally bundled tokenizer assets and
+registered codecs as the rest of the workbench.
+
+Normal use does not upload JSON, schemas, tasks, artifacts, or restored output. Downloads
+are created only after the user requests them. Imported artifacts are parsed, verified,
+rendered, and decoded locally.
 
 ## Local development
 
@@ -63,17 +123,13 @@ The printed loopback URL opens the website. Build the static output with:
 pnpm --filter @morph/workbench build
 ```
 
-The production output is written to `apps/workbench/dist` for ordinary workspace builds.
-The private Sites deployment builds the same app into the root ignored `dist` directory,
-as declared by `.openai/hosting.json`.
+The production output is written to `apps/workbench/dist`. A local build requires no
+Vercel account and makes no provider call.
 
-## Deployment boundary
+## Publication boundary
 
-The site is deployed privately at:
-
-<https://morph-context-compiler.goeyy.chatgpt.site>
-
-Its audience is owner-only. The source repository remains private. This deployment does
-not authorize a public repository, npm publication, GitHub release, public demo, custom
-domain, or a change to the compiler's offline runtime boundary. The verified deployment
-record is retained in `RELEASE_REPORT.md`.
+The owner authorized the existing Vercel website deployment and requested its link. The
+source repository remains private. Website deployment does not authorize npm
+publication, a GitHub release, public repository visibility, a custom domain, paid model
+evaluation, or a change to the compiler's offline runtime boundary. The verified
+deployment record belongs in `RELEASE_REPORT.md`.

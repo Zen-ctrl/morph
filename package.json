@@ -22,6 +22,7 @@
     "smoke:package": "tsx scripts/package-smoke.ts",
     "morph": "tsx packages/cli/src/index.ts",
     "workbench": "pnpm --filter @morph/workbench dev",
+    "whitepaper:pdf": "python scripts/generate-whitepaper.py --source docs/white-paper.md --output output/pdf/MORPH_White_Paper_v0.1.pdf --logo apps/workbench/public/morph-mark.jpg",
     "ci": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {

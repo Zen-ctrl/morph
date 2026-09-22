@@ -16,6 +16,7 @@ import type {
   WorkbenchCompileInput,
   WorkbenchWorkerRequest,
 } from "./protocol.js";
+import { ThemeToggle } from "./ThemeToggle.js";
 import { digestCompileInput, formatBytes, formatSavings, summarizeOutcomes } from "./workbench.js";
 
 type RunPhase = "idle" | "running" | "success" | "failure" | "canceled";
@@ -272,12 +273,14 @@ function AppHeader(): React.JSX.Element {
         <a href="#formats">Formats</a>
         <a href="#compiler">Workbench</a>
         <a href="#proof">Evidence</a>
+        <a href="/white-paper">White paper</a>
         <a href="#docs">Docs</a>
       </nav>
       <aside className="header-meta" aria-label="Runtime status">
         <StatusChip value="offline" tone="verified" />
         <span>local-o200k-base</span>
         <span>v0.1.0</span>
+        <ThemeToggle />
       </aside>
     </header>
   );
@@ -593,6 +596,9 @@ export function App(): React.JSX.Element {
         <section className="hero" aria-labelledby="page-title">
           <div className="hero-copy-block">
             <p className="eyebrow">Model Optimized Representation for Prompt Handoffs</p>
+            <p className="hero-wordmark" aria-hidden="true">
+              MORPH
+            </p>
             <h1 id="page-title">Structured context, compiled with receipts.</h1>
             <p className="hero-copy">
               MORPH turns one complete dataset into several reversible model-facing layouts,

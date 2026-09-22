@@ -1,6 +1,6 @@
 # MORPH release report
 
-Report status: **LOCAL RELEASE COMPLETE; PRIVATE REPOSITORY AND PRIVATE WEBSITE VERIFIED**
+Report status: **LOCAL RELEASE COMPLETE; PRIVATE REPOSITORY AND VERCEL WEBSITE VERIFIED**
 Specification version: `0.1.0`
 Package version: `0.1.0`
 Report date: 2026-09-22
@@ -21,8 +21,8 @@ treated as a passing result.
 | Inspected local pnpm | `10.15.0` |
 | Git branch | `main` |
 | Verified implementation commit | `87fb3d6b3dea887ef660e0c559f9c31fd2b8f55c` |
-| Verified website code commit | `1a3f2996d53fc1af0487955f2558bb5e69f73463` |
-| First private website version | `appgprj_6ab247d82f608191a012fb1456fdaec1~appgver_12a94cbaf20c8191b29609067c5f6cd0` |
+| Vercel project | Existing project `morph`, ID `prj_OBvb3QUVfCzNqSoPj7U4Xu2xpObA`, scope `kwkmedias-4023s-projects` |
+| Vercel production URL | `https://morph-one-jade.vercel.app` |
 | Release evidence commit | The descendant commit containing this report and curated reports. Its SHA is provided in the final handoff because a commit cannot contain its own identity. |
 | Final working-tree state | Clean `main` tracking `origin/main`, verified after the release-evidence commit. |
 
@@ -31,15 +31,15 @@ treated as a passing result.
 | Area | Status | Evidence or limitation |
 | --- | --- | --- |
 | Local implementation | **Complete locally** | SDK, core, codecs, tokenizer, planner, CLI, evaluation, workbench, schema registry, and optional Jev adapter passed the recorded offline verification. |
-| Data preservation | **Verified on required suites** | 128 ordinary tests, the extended seeded property suite, and 70 applicable offline conformance cases passed with zero failures. |
+| Data preservation | **Verified on required suites** | 130 ordinary tests, the extended seeded property suite, and 70 applicable offline conformance cases passed with zero failures. |
 | Token measurement | **Verified for the named tokenizer** | 61 complete rendered candidate prompts were measured across nine synthetic fixtures. Counts are exact for the named local tokenizer only. |
 | Model comprehension | **Not evaluated** | A bounded provider-neutral runner is present, but no provider adapter, live model call, measured manifest, or quality profile is bundled. |
 | Jev adapter | **Implemented optional adapter; live test not-run** | Synthetic/offline contract behavior only. No credentialed TypeSafe request is claimed. |
 | Schema registry | **Implemented and tested optional extension** | In-memory and handle-hardened local-filesystem registries, references, hydration, packed installation, and public entry points passed. |
 | Private GitHub repository | **Created and verified private** | `https://github.com/Zen-ctrl/morph`, default branch `main`, visibility `PRIVATE`. |
-| Private project website | **Deployed and verified** | Owner-only site at `https://morph-context-compiler.goeyy.chatgpt.site`. The first website deployment used source commit `1a3f2996d53fc1af0487955f2558bb5e69f73463`. |
-| Public release | **Not authorized** | No public visibility, npm publication, GitHub release, or public demo is authorized. |
-| Other deployment | **Not run** | No Vercel or Firebase resource was created or modified. |
+| Vercel project website | **Deployed and verified** | The existing Vercel project was reused at `https://morph-one-jade.vercel.app`; no second Vercel project was created. |
+| Website publication | **Authorized for this site** | The user explicitly requested the Vercel website and production link. This does not authorize a public GitHub repository, npm publication, or GitHub release. |
+| Other deployment | **Not run** | No Firebase resource was created or modified. |
 
 ## Implemented local surface
 
@@ -128,12 +128,16 @@ offline benchmark commands do not depend on repository-relative fixture paths.
   candidate trials, randomizes by seed, enforces request, concurrency, retry, timeout,
   output, and call-or-priced-cost limits, and preserves complete denominators. No provider
   adapter or live result is bundled.
-- Local React/Vite project website and workbench with native codecs, gated TOON, worker execution,
-  cancellation, request-digest stale-result protection, synthetic examples, honest
-  preservation/token/quality/policy states, user-initiated downloads, and local artifact
-  import through strict parse, verify, render, and decode paths. The surrounding dossier
-  documents the use case, invariant, compiler pipeline, format families, evidence layers,
-  policy modes, trust boundaries, developer entry points, and canonical references.
+- Local React/Vite project website and workbench with native codecs, gated TOON, worker
+  execution, cancellation, request-digest stale-result protection, synthetic examples,
+  honest preservation/token/quality/policy states, user-initiated downloads, and local
+  artifact import through strict parse, verify, render, and decode paths.
+- FolliGenz-inspired light and dark visual themes, animated MORPH wordmarks, the supplied
+  MORPH graphics, responsive layouts, and reduced-motion behavior. Theme choice remains
+  session-only and is not written to browser storage.
+- A long-form online white paper at `/white-paper` and a 23-page generated PDF. Both explain
+  the use case, invariant, compiler pipeline, formats, evidence boundaries, security model,
+  current capabilities, and explicit non-capabilities.
 
 ### Optional extensions
 
@@ -160,23 +164,23 @@ Every row below records an executed command or a directly verified remote state.
 | --- | ---: | --- |
 | `pnpm install --frozen-lockfile` | `0` | Lockfile current; all 11 workspace projects already up to date. |
 | `pnpm morph doctor` | `0` | Node range valid; six encoders registered; both tokenizer asset digests matched; network disabled; model quality not-run. |
-| `pnpm lint` | `0` | Biome checked 114 files with no fixes required. |
+| `pnpm lint` | `0` | Biome checked 121 files with no fixes required. |
 | `pnpm typecheck` | `0` | Root strict TypeScript project passed. |
-| `pnpm test` | `0` | 23 files and 128 tests passed; zero failed or skipped. |
+| `pnpm test` | `0` | 24 files and 130 tests passed; zero failed or skipped. |
 | `pnpm test:extended` | `0` | Five files and 28 test definitions passed with seed 20260921. The 5,000 property budget generated 2,500 general inputs and 625 uniform-table inputs, exercising at least 5,000 complete native bundle round trips. |
 | `pnpm build` | `0` | All nine Node packages and the React/Vite workbench built successfully. |
 | `pnpm smoke:package` | `0` | All nine packages packed and installed in a clean consumer; installed CLI conformance, SDK decode, registry, and Jev fallback passed. |
 | CLI inspect smoke | `0` | Customer fixture accepted as a 19-node uniform record array without exposing raw values in profile output. |
 | CLI compare smoke | `0` | 11 candidates fully evaluated; compact JSON selected at 896 visible-text tokens under the named tokenizer. |
 | CLI compile/render/verify/decode smoke | `0` | Artifact `246f514b92b50b4c3c35d3b90ea2f5e24b4f4d4ee5bfe4b3cddd0ee3919892f3` compiled, rendered, checksum-verified, bundle-decoded, and restored. |
-| Workbench production build | `0` | Vite transformed 19 modules and produced the local static build with the project dossier and supplied brand assets. |
-| Workbench browser smoke | `0` | Two workbench test files and five tests passed with network-blocking globals; local preview returned HTTP 200 with the root mount. |
-| Website full local verification | `0` | `pnpm run ci` checked 117 files, passed strict typecheck, passed 23 test files and 128 tests, and built all workspace packages plus the website. |
+| Workbench production build | `0` | Vite transformed 21 modules and produced the local static build with the project dossier, white paper, and supplied brand assets. |
+| Workbench browser smoke | `0` | The workbench and site tests passed with network-blocking globals; local preview returned HTTP 200 with the root mount. |
+| Website full local verification | `0` | `pnpm run ci` checked 121 files, passed strict typecheck, passed 24 test files and 130 tests, and built all workspace packages plus the website. |
 | Website extended property suite | `0` | Five files and 28 test definitions passed with the existing 5,000-round-trip budget and seed. |
 | Website package smoke | `0` | All nine packages still packed and installed in a clean consumer after the website changes. |
-| Website visual and runtime check | `0` | Desktop and 390 px mobile layouts rendered without browser console warnings; the real compiler completed in the website and selected compact JSON with a measured 862-token render for the default workbench example. |
-| Private website deployment | `0` | Owner-only deployment `appgdep_6ab24e498a748191858bc650e94ee827` succeeded at `https://morph-context-compiler.goeyy.chatgpt.site`. |
-| Website GitHub Actions `offline-ci` | `0` | Run `35712083116` passed for website commit `1a3f2996d53fc1af0487955f2558bb5e69f73463`. |
+| Website visual and runtime check | `0` | Dark and light desktop themes and 390 px mobile layouts rendered without console warnings or page-width overflow; the real compiler completed in the browser and selected compact JSON with a measured 862-token render for the default example. |
+| White paper verification | `0` | The HTML paper rendered locally. The PDF contains 23 nonblank pages, is 325,302 bytes, has no extracted em dash or en dash characters, keeps extracted words within page bounds, and is byte-identical to the website copy. |
+| Existing Vercel website deployment | `0` | Project `morph` was reused at `https://morph-one-jade.vercel.app`; no new Vercel project was created. |
 | CLI conformance bench | `0` | 73 cases: 70 passed, 0 failed, 3 correctly inapplicable across nine fixtures. |
 | CLI token bench | `0` | 61 complete rendered candidate rows measured across nine fixtures; 58 were policy-eligible. |
 | CLI performance bench | `0` | 15 stages, 3 warmups, and 20 measured samples per stage on Node 24.19.0, Windows x64. |
@@ -208,6 +212,8 @@ then kept every installed MORPH runtime check offline. The corrected workflow pa
 | Unicode source-map offsets | Passed |
 | CLI file and exit behavior | Passed |
 | Workbench offline, artifact-import, stale-result, and accessibility behavior | Passed |
+| Workbench light/dark themes and responsive website layout | Passed |
+| HTML and PDF white paper | Passed |
 | Schema registry and hydration | Passed |
 | Jev offline fallback and response validation | Passed; live call not-run |
 
@@ -317,8 +323,8 @@ prompt-cache experiment: not-run
     local tool rather than a multi-tenant authorization boundary.
 11. Registry references are not model-ready and require verified local hydration.
 12. Jev defaults to a movable request alias and has not passed a live contract test.
-13. No owner license, npm publication, GitHub release, public demo, or public visibility
-    has been selected. The project website is owner-only.
+13. No owner license, npm publication, GitHub release, or public repository visibility has
+    been selected. Only the requested Vercel website publication is authorized.
 
 ## Repository and publication state
 
@@ -335,9 +341,10 @@ prompt-cache experiment: not-run
 | npm packages | Not published |
 | GitHub release | Not created |
 | Public repository | Not authorized |
-| Private project website | Deployed owner-only: `https://morph-context-compiler.goeyy.chatgpt.site` |
+| Vercel project website | Existing project reused and deployed: `https://morph-one-jade.vercel.app` |
+| Vercel project ID | `prj_OBvb3QUVfCzNqSoPj7U4Xu2xpObA` |
 | Firebase resources | Not created or modified |
-| Vercel resources | Not created or modified |
+| Additional Vercel projects | None created |
 
 ## Generated artifact paths
 
@@ -350,8 +357,12 @@ comparison report: reports/examples/customers-comparison.json
 conformance report: reports/examples/conformance.json and reports/examples/conformance.md
 token report: reports/examples/tokens.json and reports/examples/tokens.md
 performance report: reports/examples/performance.json and reports/examples/performance.md
+white paper source: docs/white-paper.md
+white paper PDF: output/pdf/MORPH_White_Paper_v0.1.pdf
+website PDF copy: apps/workbench/public/morph-white-paper-v0.1.pdf
 ```
 
 The three artifact files are intentionally ignored local outputs. The curated synthetic
-reports are committed. No dataset, artifact, or report was uploaded outside the private
-GitHub repository.
+reports are committed. The Vercel site publishes only the documented project pages,
+supplied brand images, synthetic examples, and white paper. It does not upload a user
+dataset, generated artifact, or private report.

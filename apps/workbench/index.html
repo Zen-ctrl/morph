@@ -7,9 +7,18 @@
       name="description"
       content="MORPH is a local representation compiler for reversible, measurable model context. Explore the project and compare complete prompt layouts in the browser."
     />
-    <meta name="theme-color" content="#f5f8ff" />
+    <meta name="theme-color" content="#fafbfe" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>MORPH · Structured context, compiled with receipts</title>
+    <script>
+      (() => {
+        const theme = window.matchMedia?.("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

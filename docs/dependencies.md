@@ -75,6 +75,24 @@ package-smoke outcomes remain pending in `RELEASE_REPORT.md`.
 The build permits install scripts only for `esbuild` and `tiktoken` through
 `onlyBuiltDependencies`.
 
+## White-paper authoring tools
+
+The committed white paper is built from `docs/white-paper.md` by
+`scripts/generate-whitepaper.py`. PDF authoring is a documentation workflow, not a
+runtime dependency of the SDK, CLI, compiler, or browser workbench. The recorded build
+used Python 3 with ReportLab. Poppler `pdfinfo`, `pdftoppm`, and `pdftotext`, plus
+`pdfplumber` and `pypdf`, were used for structural, visual, and extraction checks.
+
+With those optional authoring tools installed, regenerate the canonical PDF with:
+
+```console
+pnpm whitepaper:pdf
+```
+
+The canonical output is `output/pdf/MORPH_White_Paper_v0.1.pdf`. The byte-identical web
+download is copied to `apps/workbench/public/morph-white-paper-v0.1.pdf`. Neither Python
+nor ReportLab is imported by a workspace package or included in the browser bundle.
+
 ## Package contents and clean-consumer smoke
 
 The package smoke script is configured to pack these nine private Node packages into

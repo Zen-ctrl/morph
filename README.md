@@ -35,7 +35,7 @@ result, or published package from source presence alone.
 | Model evaluation | Bounded provider-neutral runner implemented | Builds matched compact-JSON and candidate trials, randomizes them by seed, and enforces request, concurrency, retry, timeout, output, and call-or-priced-cost limits. No provider adapter, quality profile, or Layer C run is bundled. |
 | Schema registry | Implemented optional extension | Includes bounded in-memory and local-filesystem stores, content-addressed bundles, reference creation, and hydration back to self-contained artifacts. |
 | Jev planner | Implemented optional adapter, live test not run | Provides bounded access-pattern classification and deterministic fallback. It is not wired into core selection and is not evidence of model quality. |
-| Private project website | Deployed | The technical dossier and real browser compiler are available at the owner-only URL below. This is not a public demo. |
+| Vercel project website | Deployed | The technical dossier, real browser compiler, light and dark themes, and technical white paper are served by the existing Vercel project. |
 | Package and public release | Not published | Workspace packages and the GitHub repository remain private. Public release requires separate owner authorization. |
 
 ## Requirements
@@ -103,10 +103,13 @@ that option.
 
 ## Project website and browser workbench
 
-Private hosted site: <https://morph-context-compiler.goeyy.chatgpt.site>
+Vercel site: <https://morph-one-jade.vercel.app>
 
-The hosted audience is owner-only. The compiler itself still performs no provider call,
-upload, analytics, or browser persistence.
+White paper: <https://morph-one-jade.vercel.app/white-paper>
+
+The hosted site uses the same local-first compiler as this repository. It performs no
+provider call, automatic data upload, analytics, or input persistence. The appearance
+toggle follows the system theme on load and changes only the current page session.
 
 Start the local Vite server:
 
@@ -124,6 +127,12 @@ artifact, explain report, and restored JSON. A user can import a local artifact 
 20 MiB; the worker applies the strict artifact parser, verification, rendering, and
 decoding paths before displaying it. The file remains local. The workbench does not use
 analytics, browser storage, remote fonts, or model calls.
+
+The dedicated white-paper route presents the implemented system in long form and links
+to the reviewed 23-page PDF at `output/pdf/MORPH_White_Paper_v0.1.pdf`. The visual layer
+uses owner-approved MORPH artwork and a restrained adaptation of the local FolliGenz
+recreation's palette, gradients, soft elevation, pill controls, and theme behavior. The
+existing MORPH charts, compiler pipeline, and workbench layout remain intact.
 
 See [the website implementation notes](docs/website.md) for its information architecture,
 claim sources, asset provenance, and deployment boundary.
@@ -221,13 +230,15 @@ development oracle and is not a runtime dependency.
 - [Dependencies](docs/dependencies.md)
 - [Release process](docs/release.md)
 - [Project website](docs/website.md)
+- [Technical white paper](docs/white-paper.md)
 - [Current release report](RELEASE_REPORT.md)
 - [Product specification](SPEC.md)
 - [Primary references](REFERENCES.md)
 
 ## Publication state
 
-Every workspace package is marked `private`. No npm publication, GitHub release, public
-repository, or public website is authorized by this README. The private site does not
-change those publication boundaries. Verified remote state belongs in
+Every workspace package is marked `private`. No npm publication, GitHub release, or
+public repository is authorized by this README. The owner explicitly authorized the
+existing Vercel project website and its link for this project. That website authorization
+does not authorize source or package publication. Verified remote state belongs in
 `RELEASE_REPORT.md`.

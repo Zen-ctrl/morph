@@ -535,9 +535,47 @@ const result = await morph.compare({
         </ul>
       </section>
 
+      <section
+        className="white-paper-teaser"
+        id="white-paper"
+        aria-labelledby="white-paper-teaser-title"
+      >
+        <div className="white-paper-teaser-copy">
+          <p className="eyebrow">The full engineering argument</p>
+          <h2 id="white-paper-teaser-title">Read the MORPH white paper.</h2>
+          <p>
+            Follow the compiler from strict semantic intake through physical planning, bundle
+            reconstruction, complete-render token measurement, policy gates, current evidence, and
+            the boundaries that keep smaller from being confused with better.
+          </p>
+          <div className="white-paper-teaser-actions">
+            <a className="button primary" href="/white-paper">
+              Read online <span aria-hidden="true">↗</span>
+            </a>
+            <a className="button secondary" href="/morph-white-paper-v0.1.pdf" download>
+              Download PDF <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+        <div className="white-paper-teaser-facts">
+          <article>
+            <span>Preservation</span>
+            <strong>Verified</strong>
+          </article>
+          <article>
+            <span>Prompt size</span>
+            <strong>Measured</strong>
+          </article>
+          <article>
+            <span>Model quality</span>
+            <strong>Not run</strong>
+          </article>
+        </div>
+      </section>
+
       <section className="dossier-section docs-section" id="docs" aria-labelledby="docs-title">
         <div className="section-number" aria-hidden="true">
-          06
+          07
         </div>
         <SectionHeading
           eyebrow="Documentation map"
