@@ -96,7 +96,9 @@ unless they are deliberately curated synthetic evidence.
 encoders, tokenizer adapters, TOON adapter, evaluation, schema registry, Jev planner,
 CLI, and composed SDK. It runs `morph doctor`, the installed offline conformance bench,
 a compile/decode SDK example, an in-memory registry example, and the disabled Jev
-fallback in a clean offline temporary consumer.
+fallback in a clean temporary consumer. Dependency installation may query the package
+registry when pnpm metadata is not cached; the installed runtime checks keep MORPH
+networking disabled.
 
 ## Offline CI workflow
 

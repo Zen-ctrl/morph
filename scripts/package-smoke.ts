@@ -85,7 +85,7 @@ try {
     )}\n`,
     "utf8",
   );
-  run(["install", "--offline", "--frozen-lockfile=false"], consumer);
+  run(["install", "--prefer-offline", "--frozen-lockfile=false"], consumer);
   run(["exec", "morph", "doctor"], consumer);
   run(["exec", "morph", "bench", "--suite", "conformance", "--offline"], consumer);
   await writeFile(

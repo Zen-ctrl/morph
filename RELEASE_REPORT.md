@@ -141,8 +141,10 @@ offline benchmark commands do not depend on repository-relative fixture paths.
 - Every root and workspace package manifest requires Node.js `>=22.12.0 <25`. The root
   lock uses an `esbuild` 0.28.2 override as audit hardening.
 - The package smoke script packs all nine Node packages, including the optional schema
-  registry and Jev planner, and exercises their public entry points in a clean offline
-  consumer. Its actual result remains pending below.
+  registry and Jev planner, and exercises their public entry points in a clean consumer.
+  Dependency installation may query the package registry when pnpm metadata is absent;
+  the installed runtime checks keep MORPH networking disabled. Its actual result remains
+  pending below.
 
 ## Commands and actual outcomes
 

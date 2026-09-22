@@ -92,13 +92,15 @@ local tarballs:
 @morph/sdk
 ```
 
-It installs all nine into a temporary offline consumer, runs the installed CLI doctor
-and conformance commands, compiles and decodes through `@morph/sdk`, exercises the
+It installs all nine into a temporary clean consumer, runs the installed CLI doctor and
+conformance commands, compiles and decodes through `@morph/sdk`, exercises the
 in-memory schema registry, and confirms the disabled Jev classifier does not make a
 network call. The CLI package `files` list includes `dist` and `benchmark-fixtures`, so
 the installed conformance command uses packaged fixtures rather than repository-relative
-paths. This describes the smoke script's coverage. Its final executed outcome is a
-pending release-report field.
+paths. The install uses pnpm's local cache when available and may query the package
+registry when metadata is absent; offline operation begins after installation. This
+describes the smoke script's coverage. Its final executed outcome is a pending
+release-report field.
 
 ## Tokenizer identity and status
 

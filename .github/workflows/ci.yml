@@ -47,7 +47,7 @@ jobs:
       - name: Build all packages and the workbench
         run: pnpm build
 
-      - name: Install packed SDK in a clean offline consumer
+      - name: Install packed packages and run an offline-runtime smoke
         run: pnpm smoke:package
 
       - name: Run CLI smoke path
