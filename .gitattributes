@@ -1,0 +1,12 @@
+* text=auto eol=lf
+SPEC.md whitespace=-trailing-space
+
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.pdf binary
+*.webp binary
+*.woff binary
+*.woff2 binary

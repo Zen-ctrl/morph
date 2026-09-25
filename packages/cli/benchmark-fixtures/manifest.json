@@ -1,0 +1,16 @@
+{
+  "manifestVersion": "morph-benchmark-manifest/1",
+  "fixtureVersion": "synthetic-v2",
+  "seed": 20260921,
+  "fixtures": [
+    "fixtures/customers.json",
+    "fixtures/numeric-edge.json",
+    "fixtures/nested.json",
+    "fixtures/sparse.json",
+    "fixtures/repeated.json",
+    "fixtures/multilingual.json",
+    "fixtures/tiny.json",
+    "fixtures/adversarial.json",
+    "fixtures/sequence.json"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "emoji": "🧭",
+  "chinese": "结构化上下文",
+  "accent": "café",
+  "decomposed": "café",
+  "delimiters": "tab\tpipe|comma,semicolon;",
+  "newline": "first\nsecond"
+}

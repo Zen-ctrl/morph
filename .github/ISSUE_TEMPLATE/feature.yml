@@ -1,0 +1,70 @@
+name: Feature proposal
+description: Propose a scoped capability or improvement that respects the MORPH contract.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Use case and problem
+      description: Describe the concrete user need before proposing implementation details.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Explicit non-goals
+    validations:
+      required: true
+  - type: textarea
+    id: surfaces
+    attributes:
+      label: Affected packages or surfaces
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and migration impact
+      description: Cover public types, artifact formats, CLI behavior, fixtures, and stored artifacts.
+    validations:
+      required: true
+  - type: textarea
+    id: network
+    attributes:
+      label: Offline, privacy, and network behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and validation needed
+      description: Separate preservation, prompt efficiency, model quality, and performance.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Product-boundary checks
+      options:
+        - label: The proposal does not silently filter, project, summarize, reorder, normalize, or round accepted input.
+          required: true
+        - label: Query execution or derived data is kept separate from lossless representation compilation.
+          required: true
+        - label: No model-quality claim is made without applicable evidence.
+          required: true
+        - label: Any remote call requires explicit permission and bounded behavior.
+          required: true

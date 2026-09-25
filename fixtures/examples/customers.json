@@ -1,0 +1,5 @@
+[
+  { "id": "c1", "name": "Ada Rivera", "country": "US", "revenue": 129, "active": true },
+  { "id": "c2", "name": "Noah Chen", "country": "CA", "revenue": 85, "active": false },
+  { "id": "c3", "name": "Mina Okafor", "country": "US", "revenue": 220, "active": true }
+]

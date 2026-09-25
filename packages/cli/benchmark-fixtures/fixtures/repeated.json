@@ -1,0 +1,5 @@
+[
+  { "id": "01", "country": "United States", "tier": "gold" },
+  { "id": "02", "country": "Canada", "tier": "silver" },
+  { "id": "03", "country": "United States", "tier": "gold" }
+]

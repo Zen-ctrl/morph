@@ -1,0 +1,87 @@
+name: Bug report
+description: Report a reproducible MORPH failure using synthetic or approved public data.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include secrets, credentials, private datasets, provider responses, or live exploit details. Use the security policy for an undisclosed vulnerability.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      options:
+        - Parser and IR
+        - Core planner and artifacts
+        - Native codecs
+        - TOON adapter
+        - Tokenizer
+        - CLI and filesystem
+        - Workbench and website
+        - Evaluation harness
+        - Schema registry
+        - Jev adapter
+        - Documentation or build
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the smallest synthetic fixture and exact command or SDK call.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include error codes and redacted diagnostics, not private values.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include commit SHA, operating system, Node.js, pnpm, and browser when applicable.
+    validations:
+      required: true
+  - type: dropdown
+    id: contract
+    attributes:
+      label: Contract impact
+      options:
+        - Preservation or round trip
+        - Token measurement
+        - Budget or resource limit
+        - Security or privacy
+        - Quality or evidence label
+        - User interface or accessibility
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: This reproduction uses synthetic or approved public data.
+          required: true
+        - label: This is not an undisclosed security vulnerability.
+          required: true
+        - label: I am not inferring a model-quality or universal-savings claim from this bug.
+          required: true

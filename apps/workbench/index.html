@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MORPH compares ways to arrange structured data for AI prompts, checks that every value can be recovered, counts the complete text, and explains its choice. Try it in your browser without uploading your data."
+    />
+    <meta name="theme-color" content="#e2dfda" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>MORPH · Smarter shapes for structured AI prompts</title>
+    <script>
+      (() => {
+        const theme = window.matchMedia?.("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

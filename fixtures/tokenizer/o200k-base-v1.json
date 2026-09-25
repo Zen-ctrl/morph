@@ -1,0 +1,45 @@
+{
+  "fixtureVersion": "morph-tokenizer-fixture/1",
+  "oracle": "official Python tiktoken 0.14.0 encode_ordinary",
+  "oraclePackage": "tiktoken",
+  "oracleVersion": "0.14.0",
+  "generatedBy": "development-only oracle; not a MORPH runtime dependency",
+  "assetSha256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+  "cases": [
+    { "text": "", "ids": [], "count": 0 },
+    { "text": "hello world", "ids": [24912, 2375], "count": 2 },
+    {
+      "text": " leading and  repeated whitespace\nnext line\tcell",
+      "ids": [8117, 326, 220, 24161, 83606, 198, 7311, 2543, 89092],
+      "count": 9
+    },
+    {
+      "text": "punctuation: []{}(),.;!? | comma, tab\t semicolon;",
+      "ids": [
+        15497, 308, 32719, 25, 6126, 12083, 2547, 24873, 78922, 1022, 64235, 11, 6842, 197, 2743,
+        94094, 26
+      ],
+      "count": 17
+    },
+    {
+      "text": "中文文本, café, é, emoji: 🧪🚀",
+      "ids": [10667, 145683, 11, 30469, 11, 319, 13430, 11, 74471, 25, 9552, 100, 103, 112927, 222],
+      "count": 15
+    },
+    {
+      "text": "-0 1.2300 9007199254740993 9e30",
+      "ids": [
+        12, 15, 220, 16, 13, 15752, 15, 220, 9752, 47555, 36831, 39739, 37986, 18, 220, 24, 68, 1130
+      ],
+      "count": 18
+    },
+    {
+      "text": "<|endoftext|> and <|endofprompt|> are ordinary text here",
+      "ids": [
+        27, 91, 419, 1440, 919, 91, 29, 326, 464, 91, 419, 1440, 82467, 91, 29, 553, 30633, 2201,
+        2105
+      ],
+      "count": 19
+    }
+  ]
+}

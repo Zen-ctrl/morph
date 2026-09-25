@@ -1,0 +1,1 @@
+Identify the customer with the highest revenue and return the id and exact revenue.

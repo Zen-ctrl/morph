@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 470" role="img" aria-labelledby="title">
+  <title id="title">Isometric study of structured data in several arrangements</title>
+  <rect width="660" height="470" fill="#eee9e3"/>
+  <g stroke="#c9c2b9" stroke-width="1" fill="none" opacity=".8">
+    <path d="M60 380 322 252l284 111M73 405l260-128 263 104M88 429l258-127 233 99"/>
+    <path d="m127 348 179 90m-123-118 189 100m-130-129 204 108m-147-136 217 113m-155-143 227 120"/>
+  </g>
+  <ellipse cx="343" cy="370" rx="231" ry="30" fill="#d7d0c8" opacity=".48"/>
+  <g stroke="#343331" stroke-linejoin="round" stroke-width="2">
+    <path d="m172 328 154-72 155 69-154 77z" fill="#e2ddd5"/>
+    <path d="m172 328 155 74v-17l-155-74z" fill="#c1bab0"/>
+    <path d="m327 402 154-77v-17l-154 77z" fill="#aba49b"/>
+    <path d="m200 303 123-58 126 56-123 61z" fill="#faf6ed"/>
+    <path d="m200 303 126 59v-56l-126-58z" fill="#ded7cb"/>
+    <path d="m326 362 123-61v-53l-123 58z" fill="#cfc7bb"/>
+    <path d="m200 248 123-57 126 57-123 58z" fill="#f7f2e9"/>
+    <path d="m221 244 101-47 105 47-101 49z" fill="#e9e3d8" stroke-width="1"/>
+    <path d="m244 253 80-37 81 36-80 39z" fill="#f9f6ef" stroke-width="1"/>
+    <path d="m244 253 81 38v47l-81-39z" fill="#d6cec1"/>
+    <path d="m325 291 80-39v47l-80 39z" fill="#aaa397"/>
+    <path d="m280 180 95-43 91 41-94 45z" fill="#efede6"/>
+    <path d="m280 180 92 43v41l-92-43z" fill="#c8c1b8"/>
+    <path d="m372 223 94-45v40l-94 46z" fill="#8d8985"/>
+    <path d="m296 175 76-35 75 34-75 36z" fill="#fcf9f3"/>
+    <path d="m296 175 76 35v39l-76-35z" fill="#d1c9bd"/>
+    <path d="m372 210 75-36v39l-75 36z" fill="#aaa298"/>
+    <path d="m354 142 17-8 18 8-17 8z" fill="#222c43"/>
+    <path d="m354 142 18 8v75l-18-9z" fill="#253b62"/>
+    <path d="m372 150 17-8v75l-17 8z" fill="#16283f"/>
+    <path d="m229 184 204 94 20-10-204-94z" fill="#f05d3e"/>
+    <path d="m229 184 204 94v14l-204-94z" fill="#c84230"/>
+    <path d="m433 278 20-10v14l-20 10z" fill="#943828"/>
+    <path d="m305 95 20-9 132 60-19 10z" fill="#7f8582"/>
+    <path d="m438 156 19-10v15l-19 9z" fill="#555c5b"/>
+    <path d="m305 95 133 61v14L305 109z" fill="#a0a5a0"/>
+    <path d="m177 155 14-7 30 66-14 7z" fill="#9ba4a2"/>
+    <path d="m207 221 14-7v10l-14 7z" fill="#697775"/>
+    <path d="m177 155 30 66v10l-30-66z" fill="#c4c7c0"/>
+    <path d="m457 327 32-15 31 15-31 15z" fill="#1c3359"/>
+    <path d="m457 327 32 15v39l-32-16z" fill="#234676"/>
+    <path d="m489 342 31-15v38l-31 16z" fill="#172c4f"/>
+  </g>
+  <g fill="none" stroke="#f05d3e" stroke-width="2" stroke-dasharray="5 5" opacity=".8">
+    <path d="m229 184-48-22M453 268l66-31"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="#686761">
+    <text x="56" y="131">INPUT / 01</text>
+    <text x="492" y="227">OUTPUT / 06</text>
+    <text x="75" y="447">SAME INFORMATION</text>
+    <text x="463" y="441">NEW ARRANGEMENT</text>
+  </g>
+</svg>

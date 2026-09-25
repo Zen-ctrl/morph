@@ -1,0 +1,88 @@
+name: Representation proposal
+description: Propose a new encoding family or material format revision.
+title: "[Representation]: "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: identity
+    attributes:
+      label: Proposed encoding ID and format version
+      placeholder: example-format@1
+    validations:
+      required: true
+  - type: textarea
+    id: applicability
+    attributes:
+      label: Exact applicability domain
+      description: State supported root kinds, shapes, scalar types, and explicit rejection cases.
+    validations:
+      required: true
+  - type: textarea
+    id: grammar
+    attributes:
+      label: Grammar and deterministic options
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Self-contained dependencies and interpretation guide
+    validations:
+      required: true
+  - type: textarea
+    id: decoder
+    attributes:
+      label: Decoder rejection and allocation rules
+    validations:
+      required: true
+  - type: textarea
+    id: preservation
+    attributes:
+      label: Preservation argument
+      description: Cover number lexemes, types, order, multiplicity, missingness, nulls, keys, and empty containers.
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Complete-prompt counting impact
+      description: Include guide, metadata, schema, framing, and payload overhead.
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Planned fixtures and tests
+      description: Include explicit, property, conformance, malformed, tamper, and resource-limit cases.
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: Current evidence status
+      options:
+        - Not evaluated
+        - Layer A codec conformance only
+        - Layers A and B conformance and prompt efficiency
+        - Layer C model-quality evidence available
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Expected benefit
+      description: State this as a hypothesis unless reproducible measurements already exist.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Representation checks
+      options:
+        - label: Reconstruction will work from the rendered self-contained bundle without a hidden source copy.
+          required: true
+        - label: Compact JSON remains the measured baseline.
+          required: true
+        - label: The proposal stays experimental until every requested gate passes.
+          required: true

@@ -1,0 +1,417 @@
+{
+  "reportVersion": "morph-explain/1",
+  "completedSearch": true,
+  "baselinePlanId": "json-compact@1:44136fa355b3",
+  "selectedPlanId": "json-compact@1:44136fa355b3",
+  "policy": "economy-experimental",
+  "candidates": [
+    {
+      "planId": "json-compact@1:44136fa355b3",
+      "encoding": "json-compact",
+      "formatVersion": "1",
+      "options": {},
+      "selected": true,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "BASELINE_MINIMUM_SAVINGS"
+      ],
+      "tokens": {
+        "count": 896,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "644ff53cbd649c490b7aab80a3b1679c94dd16d5394f44ed98d632730931dd8f",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 314.55230000000006,
+      "savingsTokens": 0,
+      "savingsFraction": 0
+    },
+    {
+      "planId": "json-lines@1:44136fa355b3",
+      "encoding": "json-lines",
+      "formatVersion": "1",
+      "options": {},
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": false,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "BELOW_MINIMUM_SAVINGS"
+      ],
+      "tokens": {
+        "count": 884,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "a12e259c1f7adce5142056a7da0d485f581823757182ef0bb024a1abddd63666",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 3.4283000000000357,
+      "savingsTokens": 12,
+      "savingsFraction": 0.013392857142857142
+    },
+    {
+      "planId": "rows-delimited@1:c2d996db2c0f",
+      "encoding": "rows-delimited",
+      "formatVersion": "1",
+      "options": {
+        "delimiter": "\t"
+      },
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 957,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "e7712256f29693f99af1220d4b2c9938c17f69c4d948c2a380e2f8b9a8394878",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 3.7590999999999894,
+      "savingsTokens": -61,
+      "savingsFraction": -0.06808035714285714
+    },
+    {
+      "planId": "rows-delimited@1:abc413ac7092",
+      "encoding": "rows-delimited",
+      "formatVersion": "1",
+      "options": {
+        "delimiter": ","
+      },
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 924,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "aa68ce50a9a0ff6ed385fef25e8857335c278edb3c05cbb5a48bde93467973e8",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 2.6517000000000053,
+      "savingsTokens": -28,
+      "savingsFraction": -0.03125
+    },
+    {
+      "planId": "rows-delimited@1:ac4033be22da",
+      "encoding": "rows-delimited",
+      "formatVersion": "1",
+      "options": {
+        "delimiter": "|"
+      },
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 963,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "c9635efe6c425044ce8595c13f7a614d170912a4309af5a5f985d842f2464035",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 2.5430999999999813,
+      "savingsTokens": -67,
+      "savingsFraction": -0.07477678571428571
+    },
+    {
+      "planId": "rows-delimited@1:dc9ebdf0740c",
+      "encoding": "rows-delimited",
+      "formatVersion": "1",
+      "options": {
+        "delimiter": ";"
+      },
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 913,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "f6f94f6966877a8b1a7356aea486cc6416a1e28d707f0dc7c202d2fae4cd0e56",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 2.689700000000016,
+      "savingsTokens": -17,
+      "savingsFraction": -0.018973214285714284
+    },
+    {
+      "planId": "columns-json@1:44136fa355b3",
+      "encoding": "columns-json",
+      "formatVersion": "1",
+      "options": {},
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 891,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "a4ec6fc3e59a0af35ccbb92727b349e0a941448e07797453b766b0f5981d5b6d",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 2.5282999999999447,
+      "savingsTokens": 5,
+      "savingsFraction": 0.005580357142857143
+    },
+    {
+      "planId": "path-value@1:44136fa355b3",
+      "encoding": "path-value",
+      "formatVersion": "1",
+      "options": {},
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 1062,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "c39fb77f2f03254a1fcf7775279d86982fc54194202dc2bf0a7e261ad8897bbf",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 3.584699999999998,
+      "savingsTokens": -166,
+      "savingsFraction": -0.18526785714285715
+    },
+    {
+      "planId": "toon@4.1.1:8201ea5d7b2a",
+      "encoding": "toon",
+      "formatVersion": "4.1.1",
+      "options": {
+        "delimiter": ",",
+        "indentSize": 2
+      },
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 918,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "994e3524c3dc62b355b0eb357d6c0e4566316b363550c5b8052d4eca94709d45",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 15.81899999999996,
+      "savingsTokens": -22,
+      "savingsFraction": -0.024553571428571428
+    },
+    {
+      "planId": "toon@4.1.1:43df18034cf0",
+      "encoding": "toon",
+      "formatVersion": "4.1.1",
+      "options": {
+        "delimiter": "\t",
+        "indentSize": 2
+      },
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 940,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "9f129c548bb9db72b7ef2af16a17947338c1f17dc6e557bdf30859cd4c764b84",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 2.990599999999972,
+      "savingsTokens": -44,
+      "savingsFraction": -0.049107142857142856
+    },
+    {
+      "planId": "toon@4.1.1:a81aa3d692e1",
+      "encoding": "toon",
+      "formatVersion": "4.1.1",
+      "options": {
+        "delimiter": "|",
+        "indentSize": 2
+      },
+      "selected": false,
+      "applicable": true,
+      "roundTrip": "passed",
+      "dependencies": "complete",
+      "quality": {
+        "status": "unknown",
+        "baselineEncoding": "json-compact"
+      },
+      "eligible": true,
+      "reasonCodes": [
+        "QUALITY_UNKNOWN",
+        "ELIGIBLE_FOR_RANKING"
+      ],
+      "tokens": {
+        "count": 916,
+        "tokenizerId": "o200k_base",
+        "tokenizerRevision": "js-tiktoken@1.0.21:o200k_base:sha256:446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+        "textDigest": "7ddfecb1f35241884ad013e9576eebbb6b6454929c174eb87a3208a2bd54c9f2",
+        "scope": "rendered-text",
+        "certainty": "exact-for-tokenizer",
+        "assumptions": [
+          "Counts the complete visible MORPH-PROMPT/1 text under the selected tokenizer.",
+          "Provider message framing, hidden instructions, tools, images, and outputs are excluded."
+        ]
+      },
+      "elapsedMs": 2.6807000000000016,
+      "savingsTokens": -20,
+      "savingsFraction": -0.022321428571428572
+    }
+  ],
+  "warnings": [
+    "Token counts are exact for the selected text tokenizer, not provider request or billing counts.",
+    "Downstream model quality is unbound for this local tokenizer profile.",
+    "Experimental selection does not establish downstream model comprehension."
+  ],
+  "resourceSummary": {
+    "inputBytes": 226,
+    "totalNodes": 19,
+    "maxDepth": 2,
+    "objectCount": 3,
+    "arrayCount": 1,
+    "recordArrayCount": 1,
+    "candidatesGenerated": 11,
+    "candidatesEvaluated": 11,
+    "candidatesPruned": 0,
+    "maxRetainedCandidateBuffers": 8
+  },
+  "inputSemanticDigest": "02f06381b2dc88f95b5d7f2788a9d6725ab5bf6934990ba0797bab15a73df32c"
+}

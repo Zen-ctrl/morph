@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>MORPH</title>
+  <rect width="64" height="64" fill="#eee9e3"/>
+  <path d="M10 49V15h8l14 18 14-18h8v34h-9V29L32 46 19 29v20z" fill="#302d2a"/>
+  <path d="m42 7h15v15h-5v-6L39 29l-4-4 13-13h-6z" fill="#e96943"/>
+</svg>

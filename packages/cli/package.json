@@ -1,0 +1,31 @@
+{
+  "name": "@morph/cli",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0 <25"
+  },
+  "type": "module",
+  "bin": {
+    "morph": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "benchmark-fixtures"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --sourcemap --clean",
+    "typecheck": "tsc --noEmit -p ../../tsconfig.json",
+    "morph": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@morph/core": "workspace:*",
+    "@morph/encoders": "workspace:*",
+    "@morph/evaluation": "workspace:*",
+    "@morph/tokenizer-adapters": "workspace:*",
+    "@morph/toon-adapter": "workspace:*",
+    "commander": "15.0.0"
+  }
+}

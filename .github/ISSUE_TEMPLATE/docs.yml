@@ -1,0 +1,51 @@
+name: Documentation correction
+description: Correct or clarify project documentation without changing product behavior.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Document and section
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Current problem
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Source or implementation evidence
+    validations:
+      required: true
+  - type: dropdown
+    id: accessibility
+    attributes:
+      label: Accessibility impact
+      options:
+        - None expected
+        - Improves accessibility
+        - Needs accessibility review
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Documentation checks
+      options:
+        - label: Implemented, planned, experimental, blocked, and not-run states remain distinct.
+          required: true
+        - label: No unsupported result, integration, availability, or quality claim is introduced.
+          required: true
+        - label: The proposed copy contains no em dash characters.
+          required: true
