@@ -40,6 +40,13 @@ package. Commit identifiers from the former private history are no longer the ca
 public history. A private local bundle is retained outside the repository for recovery by
 the owner and must not be uploaded or linked from public documentation.
 
+GitHub retains read-only hidden refs for three closed pre-publication Dependabot pull
+requests. Repository owners cannot update or delete those refs through Git or the public
+API. The retained bot commits passed the credential-pattern audit, but can still contain
+the operational identifiers that were removed from the public default branch. A strict
+object purge would require GitHub Support or repository replacement. This limitation is
+recorded instead of claiming a guaranteed purge.
+
 Contributors can use the documented issue, pull request, conduct, security, governance,
 and verification workflows. The repository continues to make no model-quality claim and
 does not gain new network behavior from publication.

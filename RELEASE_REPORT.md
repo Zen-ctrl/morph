@@ -20,7 +20,7 @@ treated as a passing result.
 | Inspected local Node.js | `24.19.0` |
 | Inspected local pnpm | `10.15.0` |
 | Git branch | `main` |
-| Verified implementation and site source | Sanitized public source root; the exact commit is recorded in the final handoff |
+| Verified implementation and site source | Sanitized root commit `ed3651367fc12bb5c3e82ac60542eea6692263b9` |
 | Vercel project | Existing project `morph`; internal account and project identifiers are not committed |
 | Vercel production URL | `https://morph-one-jade.vercel.app` |
 | Collaboration organization commit | The descendant commit containing this report and the contributor infrastructure. Its SHA is provided in the final handoff because a commit cannot contain its own identity. |
@@ -193,7 +193,7 @@ Every row below records an executed command or a directly verified remote state.
 | Dependency audit | `0` | `pnpm audit --json`: 0 info, low, moderate, high, or critical advisories across 223 dependencies. |
 | License review | `0` | `pnpm licenses list --json` reviewed installed metadata: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT OR Apache-2.0, and MPL-2.0. No owner license was selected. |
 | SBOM generation | n/a | Not generated because no SBOM tool was selected for this private local release. The exact lockfile and license inventory are retained. |
-| GitHub Actions `offline-ci` | `0` | The private-history run passed every job. Its old commit and run references were removed before public publication. The sanitized public source run is identified in the final handoff. |
+| GitHub Actions `offline-ci` | `0` | Sanitized root run `36166379927` passed every job for commit `ed3651367fc12bb5c3e82ac60542eea6692263b9`: `https://github.com/Zen-ctrl/morph/actions/runs/36166379927`. Older workflow runs were removed before public publication. |
 
 An early private-history CI attempt failed only because the clean-consumer install used
 strict pnpm offline resolution without cached registry metadata. The workflow was changed
@@ -342,11 +342,13 @@ prompt-cache experiment: not-run
 | Visibility | `PUBLIC` |
 | Default branch | `main` |
 | Push result | Successful; local `main` tracks `origin/main` |
-| Latest recorded offline CI run | The private-history run passed and its old reference was removed before publication. The sanitized public source run is identified in the final handoff. |
+| Latest recorded offline CI run | Sanitized root run passed: `https://github.com/Zen-ctrl/morph/actions/runs/36166379927` |
 | Collaboration files | Contributor guide, governance, conduct, support, security policy, issue forms, pull request template, advisory CODEOWNERS, decision template, changelog, and dependency update configuration committed |
 | Repository labels | Existing type labels retained; area, reproduction, evidence, compatibility, and blocked-state labels added |
 | Merge settings | Squash merge only, pull request branches may be updated, and merged branches are deleted |
 | Branch protection | Not enabled; maintainer review and CODEOWNERS routing remain documented but advisory |
+| Source-history sanitization | Public `main` starts at sanitized root commit `ed3651367fc12bb5c3e82ac60542eea6692263b9`; pre-publication branches and workflow runs were removed |
+| GitHub retained pull refs | Three closed Dependabot pull requests retain read-only GitHub-managed refs to their former bot commits. Owner Git and API operations cannot rewrite those refs. No live credential pattern was detected in them. A strict object purge would require GitHub Support or repository replacement. |
 | npm packages | Not published |
 | GitHub release | Not created |
 | Public repository | Authorized and published after history sanitization and verification |
