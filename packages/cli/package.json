@@ -26,6 +26,6 @@
     "@morph/evaluation": "workspace:*",
     "@morph/tokenizer-adapters": "workspace:*",
     "@morph/toon-adapter": "workspace:*",
-    "commander": "15.0.0"
+    "commander": "15.1.0"
   }
 }
